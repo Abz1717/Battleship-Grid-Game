@@ -223,6 +223,16 @@ namespace Battleship_Grid_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap optionsMenu {
+            get {
+                object obj = ResourceManager.GetObject("optionsMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rulesbtn {
             get {
                 object obj = ResourceManager.GetObject("rulesbtn", resourceCulture);
@@ -236,6 +246,36 @@ namespace Battleship_Grid_Game.Properties {
         internal static System.Drawing.Bitmap rulesbtn_hover {
             get {
                 object obj = ResourceManager.GetObject("rulesbtn_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rulesMenu {
+            get {
+                object obj = ResourceManager.GetObject("rulesMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sound {
+            get {
+                object obj = ResourceManager.GetObject("Sound", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sound_graphic1 {
+            get {
+                object obj = ResourceManager.GetObject("sound_graphic1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

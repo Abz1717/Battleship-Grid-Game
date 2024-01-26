@@ -62,5 +62,22 @@ namespace Battleship_Grid_Game
             menu.Hide();
             logo.Hide();
         }
+
+        private void btn_options_Click(object sender, EventArgs e)
+        {
+            options_page options = new options_page();
+            options.ShowDialog();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_rules_Click(object sender, EventArgs e)
+        {
+            rules_page rules = new rules_page();
+            rules.ShowDialog();
+        }
     }
 }

@@ -85,6 +85,7 @@
             this.btn_options.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_options.TabIndex = 2;
             this.btn_options.TabStop = false;
+            this.btn_options.Click += new System.EventHandler(this.btn_options_Click);
             this.btn_options.MouseLeave += new System.EventHandler(this.btn_options_MouseLeave);
             this.btn_options.MouseHover += new System.EventHandler(this.btn_options_MouseHover);
             // 
@@ -97,6 +98,7 @@
             this.btn_rules.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_rules.TabIndex = 1;
             this.btn_rules.TabStop = false;
+            this.btn_rules.Click += new System.EventHandler(this.btn_rules_Click);
             this.btn_rules.MouseLeave += new System.EventHandler(this.btn_rules_MouseLeave);
             this.btn_rules.MouseHover += new System.EventHandler(this.btn_rules_MouseHover);
             // 
@@ -109,6 +111,7 @@
             this.btn_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_exit.TabIndex = 0;
             this.btn_exit.TabStop = false;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             this.btn_exit.MouseLeave += new System.EventHandler(this.btn_exit_MouseLeave);
             this.btn_exit.MouseHover += new System.EventHandler(this.btn_exit_MouseHover);
             // 
@@ -117,7 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
-            this.ClientSize = new System.Drawing.Size(820, 792);
+            this.ClientSize = new System.Drawing.Size(820, 938);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.menu);
             this.Name = "Form1";
