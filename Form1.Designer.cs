@@ -28,81 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.Panel();
+            this.menu = new System.Windows.Forms.Panel();
             this.btn_start = new System.Windows.Forms.PictureBox();
             this.btn_options = new System.Windows.Forms.PictureBox();
             this.btn_rules = new System.Windows.Forms.PictureBox();
             this.btn_exit = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_start)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_options)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_rules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_exit)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel2
+            // logo
             // 
-            this.panel2.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___4_;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(193, -31);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(394, 224);
-            this.panel2.TabIndex = 1;
+            this.logo.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___4_;
+            this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo.Location = new System.Drawing.Point(193, -31);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(394, 224);
+            this.logo.TabIndex = 1;
             // 
-            // panel1
+            // menu
             // 
-            this.panel1.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.menu;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.btn_start);
-            this.panel1.Controls.Add(this.btn_options);
-            this.panel1.Controls.Add(this.btn_rules);
-            this.panel1.Controls.Add(this.btn_exit);
-            this.panel1.Location = new System.Drawing.Point(193, 207);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(394, 564);
-            this.panel1.TabIndex = 0;
+            this.menu.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battlemenu;
+            this.menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.menu.Controls.Add(this.btn_start);
+            this.menu.Controls.Add(this.btn_options);
+            this.menu.Controls.Add(this.btn_rules);
+            this.menu.Controls.Add(this.btn_exit);
+            this.menu.Location = new System.Drawing.Point(193, 207);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(394, 564);
+            this.menu.TabIndex = 0;
             // 
             // btn_start
             // 
-            this.btn_start.Image = ((System.Drawing.Image)(resources.GetObject("btn_start.Image")));
+            this.btn_start.Image = global::Battleship_Grid_Game.Properties.Resources.starttbn;
             this.btn_start.Location = new System.Drawing.Point(105, 110);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(184, 67);
             this.btn_start.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_start.TabIndex = 3;
             this.btn_start.TabStop = false;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
+            this.btn_start.MouseLeave += new System.EventHandler(this.btn_start_MouseLeave);
+            this.btn_start.MouseHover += new System.EventHandler(this.btn_start_MouseHover);
             // 
             // btn_options
             // 
-            this.btn_options.Image = ((System.Drawing.Image)(resources.GetObject("btn_options.Image")));
+            this.btn_options.Image = global::Battleship_Grid_Game.Properties.Resources.optionsbtn;
             this.btn_options.Location = new System.Drawing.Point(105, 209);
             this.btn_options.Name = "btn_options";
             this.btn_options.Size = new System.Drawing.Size(184, 67);
             this.btn_options.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_options.TabIndex = 2;
             this.btn_options.TabStop = false;
+            this.btn_options.MouseLeave += new System.EventHandler(this.btn_options_MouseLeave);
+            this.btn_options.MouseHover += new System.EventHandler(this.btn_options_MouseHover);
             // 
             // btn_rules
             // 
-            this.btn_rules.Image = ((System.Drawing.Image)(resources.GetObject("btn_rules.Image")));
+            this.btn_rules.Image = global::Battleship_Grid_Game.Properties.Resources.rulesbtn;
             this.btn_rules.Location = new System.Drawing.Point(105, 306);
             this.btn_rules.Name = "btn_rules";
             this.btn_rules.Size = new System.Drawing.Size(184, 67);
             this.btn_rules.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_rules.TabIndex = 1;
             this.btn_rules.TabStop = false;
+            this.btn_rules.MouseLeave += new System.EventHandler(this.btn_rules_MouseLeave);
+            this.btn_rules.MouseHover += new System.EventHandler(this.btn_rules_MouseHover);
             // 
             // btn_exit
             // 
-            this.btn_exit.Image = ((System.Drawing.Image)(resources.GetObject("btn_exit.Image")));
+            this.btn_exit.Image = global::Battleship_Grid_Game.Properties.Resources.exitbtn;
             this.btn_exit.Location = new System.Drawing.Point(105, 408);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Size = new System.Drawing.Size(184, 67);
             this.btn_exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btn_exit.TabIndex = 0;
             this.btn_exit.TabStop = false;
+            this.btn_exit.MouseLeave += new System.EventHandler(this.btn_exit_MouseLeave);
+            this.btn_exit.MouseHover += new System.EventHandler(this.btn_exit_MouseHover);
             // 
             // Form1
             // 
@@ -110,12 +118,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.ClientSize = new System.Drawing.Size(820, 792);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.logo);
+            this.Controls.Add(this.menu);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMenu";
-            this.panel1.ResumeLayout(false);
+            this.menu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btn_start)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_options)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_rules)).EndInit();
@@ -126,12 +134,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel menu;
         private System.Windows.Forms.PictureBox btn_exit;
         private System.Windows.Forms.PictureBox btn_rules;
         private System.Windows.Forms.PictureBox btn_options;
         private System.Windows.Forms.PictureBox btn_start;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel logo;
     }
 }
 
