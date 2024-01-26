@@ -63,6 +63,56 @@ namespace Battleship_Grid_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide_ {
+            get {
+                object obj = ResourceManager.GetObject("Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___4_ {
+            get {
+                object obj = ResourceManager.GetObject("Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___7_ {
+            get {
+                object obj = ResourceManager.GetObject("Copy of Copy of Copy of Copy of Copy of Lessons First slide  (7)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide_jj__6_ {
+            get {
+                object obj = ResourceManager.GetObject("Copy of Copy of Copy of Copy of Copy of Lessons First slide jj (6)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide77___5_ {
+            get {
+                object obj = ResourceManager.GetObject("Copy of Copy of Copy of Copy of Copy of Lessons First slide77  (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu {
             get {
                 object obj = ResourceManager.GetObject("menu", resourceCulture);
