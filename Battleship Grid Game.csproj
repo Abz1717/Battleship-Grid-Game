@@ -65,6 +65,12 @@
     <Compile Include="game.Designer.cs">
       <DependentUpon>game.cs</DependentUpon>
     </Compile>
+    <Compile Include="levels_page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="levels_page.Designer.cs">
+      <DependentUpon>levels_page.cs</DependentUpon>
+    </Compile>
     <Compile Include="options_page.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="game.resx">
       <DependentUpon>game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="levels_page.resx">
+      <DependentUpon>levels_page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="options_page.resx">
       <DependentUpon>options_page.cs</DependentUpon>
@@ -122,6 +131,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\hard Button.png" />
+    <None Include="Resources\medium Button.png" />
+    <None Include="Resources\easy Button %281%29.png" />
+    <None Include="Resources\Copy of Options.png" />
     <None Include="Resources\Radar.png" />
     <None Include="Resources\Battleship Game Background.png" />
     <None Include="Resources\menu %288%29.png" />

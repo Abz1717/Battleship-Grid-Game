@@ -31,6 +31,7 @@
             this.option_menu = new System.Windows.Forms.Panel();
             this.Sound = new System.Windows.Forms.Panel();
             this.sound_trackbar = new System.Windows.Forms.TrackBar();
+            this.logo = new System.Windows.Forms.Panel();
             this.option_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sound_trackbar)).BeginInit();
             this.SuspendLayout();
@@ -42,9 +43,9 @@
             this.option_menu.Controls.Add(this.Sound);
             this.option_menu.Controls.Add(this.sound_trackbar);
             this.option_menu.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.option_menu.Location = new System.Drawing.Point(193, 207);
+            this.option_menu.Location = new System.Drawing.Point(457, 274);
             this.option_menu.Name = "option_menu";
-            this.option_menu.Size = new System.Drawing.Size(394, 564);
+            this.option_menu.Size = new System.Drawing.Size(484, 708);
             this.option_menu.TabIndex = 0;
             this.option_menu.UseWaitCursor = true;
             // 
@@ -52,26 +53,39 @@
             // 
             this.Sound.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Sound;
             this.Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Sound.Location = new System.Drawing.Point(94, 107);
+            this.Sound.Location = new System.Drawing.Point(125, 150);
             this.Sound.Name = "Sound";
-            this.Sound.Size = new System.Drawing.Size(181, 42);
+            this.Sound.Size = new System.Drawing.Size(218, 57);
             this.Sound.TabIndex = 1;
             this.Sound.UseWaitCursor = true;
             // 
             // sound_trackbar
             // 
-            this.sound_trackbar.Location = new System.Drawing.Point(94, 155);
+            this.sound_trackbar.Location = new System.Drawing.Point(135, 224);
             this.sound_trackbar.Name = "sound_trackbar";
             this.sound_trackbar.Size = new System.Drawing.Size(195, 90);
             this.sound_trackbar.TabIndex = 0;
             this.sound_trackbar.UseWaitCursor = true;
+            // 
+            // logo
+            // 
+            this.logo.BackColor = System.Drawing.Color.Transparent;
+            this.logo.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___4_;
+            this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logo.Location = new System.Drawing.Point(445, 1);
+            this.logo.Margin = new System.Windows.Forms.Padding(4);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(506, 265);
+            this.logo.TabIndex = 4;
             // 
             // options_page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.RoyalBlue;
-            this.ClientSize = new System.Drawing.Size(820, 938);
+            this.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battleship_Game_Background;
+            this.ClientSize = new System.Drawing.Size(1374, 1029);
+            this.Controls.Add(this.logo);
             this.Controls.Add(this.option_menu);
             this.Name = "options_page";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -88,5 +102,6 @@
         private System.Windows.Forms.Panel option_menu;
         private System.Windows.Forms.TrackBar sound_trackbar;
         private System.Windows.Forms.Panel Sound;
+        private System.Windows.Forms.Panel logo;
     }
 }

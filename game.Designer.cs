@@ -36,23 +36,24 @@
             this.game_panel.BackColor = System.Drawing.Color.Navy;
             this.game_panel.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.menu__8_;
             this.game_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.game_panel.Location = new System.Drawing.Point(61, 7);
-            this.game_panel.Margin = new System.Windows.Forms.Padding(2);
+            this.game_panel.Location = new System.Drawing.Point(59, 13);
+            this.game_panel.Margin = new System.Windows.Forms.Padding(4);
             this.game_panel.Name = "game_panel";
-            this.game_panel.Size = new System.Drawing.Size(873, 553);
+            this.game_panel.Size = new System.Drawing.Size(1934, 1063);
             this.game_panel.TabIndex = 0;
+            this.game_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.game_panel_Paint);
             // 
             // game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battleship_Game_Background;
-            this.ClientSize = new System.Drawing.Size(1028, 571);
+            this.ClientSize = new System.Drawing.Size(2056, 1098);
             this.Controls.Add(this.game_panel);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "game";

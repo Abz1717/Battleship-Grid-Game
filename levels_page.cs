@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace Battleship_Grid_Game
 {
-    public partial class rules_page : Form
+    public partial class levels_page : Form
     {
-        public rules_page()
+        public levels_page()
         {
             InitializeComponent();
         }
 
-        private void rules_menu_Paint(object sender, PaintEventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            game start = new game();
+            start.ShowDialog();
+            this.Close();
         }
     }
 }

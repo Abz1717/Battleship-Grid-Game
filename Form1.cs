@@ -79,8 +79,10 @@ namespace Battleship_Grid_Game
         private void btn_start_Click(object sender, EventArgs e)
         {
             PlaySound("button_press.wav");
-            game start = new game();
+            levels_page start = new levels_page();
             start.ShowDialog();
+            this.Close();
+
         }
 
         private void btn_options_Click(object sender, EventArgs e)

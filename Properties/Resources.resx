@@ -127,6 +127,9 @@
   <data name="exitbtn_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exitbtn_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="medium Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\medium Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="optionsbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\optionsbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,11 +148,17 @@
   <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide77  (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide77  (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Radar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Radar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Battleship Game Background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Battleship Game Background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Copy of Options" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Copy of Options.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconBattleship (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconBattleship (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,6 +205,9 @@
   <data name="menu (8)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu (8).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="easy Button (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\easy Button (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,7 +220,7 @@
   <data name="optionsMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\optionsMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Radar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Radar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hard Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hard Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
