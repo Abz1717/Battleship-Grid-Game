@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.logo = new System.Windows.Forms.Panel();
             this.menu = new System.Windows.Forms.Panel();
             this.btn_start = new System.Windows.Forms.PictureBox();
@@ -52,7 +53,7 @@
             // 
             // menu
             // 
-            this.menu.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battlemenu;
+            this.menu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menu.BackgroundImage")));
             this.menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.menu.Controls.Add(this.btn_start);
             this.menu.Controls.Add(this.btn_options);
@@ -119,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Goldenrod;
+            this.BackColor = System.Drawing.Color.RoyalBlue;
             this.ClientSize = new System.Drawing.Size(830, 984);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.menu);
