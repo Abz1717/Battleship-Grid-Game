@@ -31,23 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.logo = new System.Windows.Forms.Panel();
             this.menu = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_start = new System.Windows.Forms.PictureBox();
             this.btn_options = new System.Windows.Forms.PictureBox();
             this.btn_rules = new System.Windows.Forms.PictureBox();
             this.btn_exit = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_start)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_options)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_rules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_exit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // logo
@@ -55,7 +55,7 @@
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___4_;
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo.Location = new System.Drawing.Point(370, 35);
+            this.logo.Location = new System.Drawing.Point(382, 35);
             this.logo.Margin = new System.Windows.Forms.Padding(2);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(242, 116);
@@ -63,7 +63,7 @@
             // 
             // menu
             // 
-            this.menu.BackColor = System.Drawing.Color.Transparent;
+            this.menu.BackColor = System.Drawing.Color.Navy;
             this.menu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menu.BackgroundImage")));
             this.menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.menu.Controls.Add(this.pictureBox4);
@@ -74,11 +74,44 @@
             this.menu.Controls.Add(this.btn_options);
             this.menu.Controls.Add(this.btn_rules);
             this.menu.Controls.Add(this.btn_exit);
-            this.menu.Location = new System.Drawing.Point(370, 155);
+            this.menu.Location = new System.Drawing.Point(382, 155);
             this.menu.Margin = new System.Windows.Forms.Padding(2);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(242, 368);
             this.menu.TabIndex = 0;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Battleship_Grid_Game.Properties.Resources.Radar;
+            this.pictureBox4.Location = new System.Drawing.Point(35, 255);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(41, 44);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Battleship_Grid_Game.Properties.Resources.Radar;
+            this.pictureBox3.Location = new System.Drawing.Point(35, 198);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(41, 44);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Battleship_Grid_Game.Properties.Resources.Radar;
+            this.pictureBox2.Location = new System.Drawing.Point(35, 135);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 44);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -94,7 +127,7 @@
             // btn_start
             // 
             this.btn_start.Image = global::Battleship_Grid_Game.Properties.Resources.starttbn;
-            this.btn_start.Location = new System.Drawing.Point(80, 75);
+            this.btn_start.Location = new System.Drawing.Point(83, 75);
             this.btn_start.Margin = new System.Windows.Forms.Padding(2);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(99, 44);
@@ -147,39 +180,6 @@
             this.btn_exit.MouseLeave += new System.EventHandler(this.btn_exit_MouseLeave);
             this.btn_exit.MouseHover += new System.EventHandler(this.btn_exit_MouseHover);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Battleship_Grid_Game.Properties.Resources.Radar;
-            this.pictureBox2.Location = new System.Drawing.Point(35, 135);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 44);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Battleship_Grid_Game.Properties.Resources.Radar;
-            this.pictureBox3.Location = new System.Drawing.Point(35, 198);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(41, 44);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Battleship_Grid_Game.Properties.Resources.Radar;
-            this.pictureBox4.Location = new System.Drawing.Point(35, 255);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(41, 44);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,7 +187,7 @@
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battleship_Game_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(984, 560);
+            this.ClientSize = new System.Drawing.Size(996, 569);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.menu);
             this.DoubleBuffered = true;
@@ -197,14 +197,14 @@
             this.Text = "MainMenu";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_start)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_options)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_rules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_exit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
