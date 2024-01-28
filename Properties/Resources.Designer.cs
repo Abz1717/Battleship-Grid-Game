@@ -71,6 +71,15 @@ namespace Battleship_Grid_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream button_press {
+            get {
+                return ResourceManager.GetStream("button_press", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___1_ {
@@ -297,6 +306,15 @@ namespace Battleship_Grid_Game.Properties {
             get {
                 object obj = ResourceManager.GetObject("starttbn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream the_mole_hans_zimmer {
+            get {
+                return ResourceManager.GetStream("the_mole_hans_zimmer", resourceCulture);
             }
         }
     }

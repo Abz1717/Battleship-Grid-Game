@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,24 @@ namespace Battleship_Grid_Game
         public Form1()
         {
             InitializeComponent();
+        }
+
+
+        private void PlaySound(string soundFileName)
+        {
+            string executablePath = AppDomain.CurrentDomain.BaseDirectory;
+            string soundFilePath = Path.Combine(executablePath, "Resources", soundFileName);
+
+            try
+            {
+                System.Media.SoundPlayer sound = new System.Media.SoundPlayer(soundFilePath);
+                sound.Play();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error playing sound " + ex.Message);
+            }
+             
         }
 
         private void btn_start_MouseHover(object sender, EventArgs e)
@@ -59,23 +78,27 @@ namespace Battleship_Grid_Game
 
         private void btn_start_Click(object sender, EventArgs e)
         {
-            menu.Hide();
-            logo.Hide();
+            PlaySound("button_press.wav");
+            game start = new game();
+            start.ShowDialog();
         }
 
         private void btn_options_Click(object sender, EventArgs e)
         {
+            PlaySound("button_press.wav");
             options_page options = new options_page();
             options.ShowDialog();
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
+            PlaySound("button_press.wav");
             Application.Exit();
         }
 
         private void btn_rules_Click(object sender, EventArgs e)
         {
+            PlaySound("button_press.wav");
             rules_page rules = new rules_page();
             rules.ShowDialog();
         }

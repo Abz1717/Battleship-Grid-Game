@@ -59,6 +59,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="game.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="game.Designer.cs">
+      <DependentUpon>game.cs</DependentUpon>
+    </Compile>
     <Compile Include="options_page.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="game.resx">
+      <DependentUpon>game.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="options_page.resx">
       <DependentUpon>options_page.cs</DependentUpon>
@@ -113,6 +122,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\button_press.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\the_mole_hans_zimmer.wav" />
     <None Include="Resources\rulesMenu.png" />
     <None Include="Resources\sound_graphic1.png" />
     <None Include="Resources\Sound.png" />

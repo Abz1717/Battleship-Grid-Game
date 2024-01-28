@@ -120,7 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
-            this.ClientSize = new System.Drawing.Size(820, 938);
+            this.ClientSize = new System.Drawing.Size(710, 813);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.menu);
             this.Name = "Form1";
