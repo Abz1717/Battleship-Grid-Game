@@ -33,7 +33,7 @@
             // 
             // game_panel
             // 
-            this.game_panel.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.menu__7_;
+            this.game_panel.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.menu__8_;
             this.game_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.game_panel.Location = new System.Drawing.Point(-18, -16);
             this.game_panel.Name = "game_panel";
