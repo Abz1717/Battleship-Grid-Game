@@ -118,53 +118,56 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide jj (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide jj (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="menu21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exitbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exitbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rulesbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rulesbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exitbtn_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exitbtn_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="starttbn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\starttbn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Battlemenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Battlemenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="menu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="optionsbtn_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\optionsbtn_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="optionsMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\optionsMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide77  (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide77  (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="startbtn_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\startbtn_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="optionsbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\optionsbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide  (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide  (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exitbtn_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exitbtn_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Battlemenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Battlemenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rulesbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rulesbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide77  (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide77  (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconBattleship (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconBattleship (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide jj (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide jj (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_press.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="the_mole_hans_zimmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\the_mole_hans_zimmer.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sound_graphic1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound_graphic1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,28 +175,34 @@
   <data name="Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="iconBattleship (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\iconBattleship (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rulesbtn_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rulesbtn_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exitbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exitbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="optionsbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\optionsbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rulesMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rulesMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="the_mole_hans_zimmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\the_mole_hans_zimmer.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="startbtn_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\startbtn_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_press.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="rulesbtn_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rulesbtn_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="optionsbtn_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\optionsbtn_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="starttbn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\starttbn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="optionsMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\optionsMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
