@@ -71,6 +71,16 @@ namespace Battleship_Grid_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Battleship_Game_Background {
+            get {
+                object obj = ResourceManager.GetObject("Battleship Game Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream button_press {
@@ -265,6 +275,16 @@ namespace Battleship_Grid_Game.Properties {
         internal static System.Drawing.Bitmap optionsMenu {
             get {
                 object obj = ResourceManager.GetObject("optionsMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Radar {
+            get {
+                object obj = ResourceManager.GetObject("Radar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

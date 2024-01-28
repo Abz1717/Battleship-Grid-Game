@@ -122,6 +122,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Radar.png" />
+    <None Include="Resources\Battleship Game Background.png" />
     <None Include="Resources\menu %288%29.png" />
     <None Include="Resources\Battlemenu.png" />
     <None Include="Resources\menu %287%29.png" />

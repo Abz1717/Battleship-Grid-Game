@@ -102,5 +102,10 @@ namespace Battleship_Grid_Game
             rules_page rules = new rules_page();
             rules.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
