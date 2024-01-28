@@ -28,14 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.game_panel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // game_panel
+            // 
+            this.game_panel.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.menu__7_;
+            this.game_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.game_panel.Location = new System.Drawing.Point(-18, -16);
+            this.game_panel.Name = "game_panel";
+            this.game_panel.Size = new System.Drawing.Size(1746, 1064);
+            this.game_panel.TabIndex = 0;
             // 
             // game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Goldenrod;
-            this.ClientSize = new System.Drawing.Size(1585, 1023);
+            this.ClientSize = new System.Drawing.Size(1714, 1078);
+            this.Controls.Add(this.game_panel);
             this.Name = "game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "game";
@@ -45,5 +56,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel game_panel;
     }
 }

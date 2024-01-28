@@ -122,6 +122,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Battlemenu.png" />
+    <None Include="Resources\menu %287%29.png" />
+    <None Include="Resources\menu %286%29.png" />
+    <None Include="Resources\menu %285%29.png" />
+    <None Include="Resources\menu %284%29.png" />
+    <None Include="Resources\menu %283%29.png" />
+    <None Include="Resources\menu %282%29.png" />
+    <None Include="Resources\menu %281%29.png" />
     <None Include="Resources\button_press.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -130,7 +138,6 @@
     <None Include="Resources\sound_graphic1.png" />
     <None Include="Resources\Sound.png" />
     <None Include="Resources\optionsMenu.png" />
-    <None Include="Resources\Battlemenu.png" />
     <None Include="Resources\menu21.png" />
     <None Include="Resources\menu2.png" />
     <None Include="Resources\exitbtn.png" />

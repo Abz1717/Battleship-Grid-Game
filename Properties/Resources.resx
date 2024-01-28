@@ -136,12 +136,6 @@
   <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="menu (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menu (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Battlemenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Battlemenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="rulesbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rulesbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,7 +196,10 @@
   <data name="optionsMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\optionsMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="menu (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menu (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="menu (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Battlemenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Battlemenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
