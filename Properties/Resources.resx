@@ -130,8 +130,8 @@
   <data name="medium Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\medium Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="optionsbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\optionsbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="menu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide  (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide  (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -141,6 +141,9 @@
   </data>
   <data name="Battlemenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Battlemenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hard Button (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hard Button (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="rulesbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rulesbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,11 +163,11 @@
   <data name="Copy of Options" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copy of Options.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="new_game" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new_game.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="iconBattleship (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconBattleship (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="menu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Copy of Copy of Copy of Copy of Copy of Lessons First slide jj (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide jj (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -177,6 +180,12 @@
   </data>
   <data name="Sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="end game" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\end game.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="optionsbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\optionsbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sound_graphic1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound_graphic1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,6 +217,9 @@
   <data name="easy Button (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\easy Button (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hard Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hard Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,7 +232,7 @@
   <data name="optionsMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\optionsMenu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hard Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hard Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="end game1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\end game1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

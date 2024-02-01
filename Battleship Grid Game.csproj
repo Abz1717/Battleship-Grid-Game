@@ -131,6 +131,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\end game1.png" />
+    <None Include="Resources\hard Button %281%29.png" />
+    <None Include="Resources\new_game.png" />
+    <None Include="Resources\end game.png" />
     <None Include="Resources\hard Button.png" />
     <None Include="Resources\medium Button.png" />
     <None Include="Resources\easy Button %281%29.png" />

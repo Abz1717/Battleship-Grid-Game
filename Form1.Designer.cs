@@ -55,7 +55,7 @@
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___4_;
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo.Location = new System.Drawing.Point(445, 1);
+            this.logo.Location = new System.Drawing.Point(255, 85);
             this.logo.Margin = new System.Windows.Forms.Padding(4);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(506, 265);
@@ -74,7 +74,7 @@
             this.menu.Controls.Add(this.btn_options);
             this.menu.Controls.Add(this.btn_rules);
             this.menu.Controls.Add(this.btn_exit);
-            this.menu.Location = new System.Drawing.Point(457, 274);
+            this.menu.Location = new System.Drawing.Point(267, 358);
             this.menu.Margin = new System.Windows.Forms.Padding(4);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(484, 708);
@@ -187,7 +187,7 @@
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battleship_Game_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1374, 1029);
+            this.ClientSize = new System.Drawing.Size(1075, 1207);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.menu);
             this.DoubleBuffered = true;
