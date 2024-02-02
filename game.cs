@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.AxHost;
 
+
+
 namespace Battleship_Grid_Game
 {
     public partial class game : Form
@@ -28,6 +30,8 @@ namespace Battleship_Grid_Game
         int computerShipsPlacedCount = 0;
 
         private bool isPlayerTurn = true;
+        private int currentRound = 1;
+
 
 
 
@@ -41,9 +45,31 @@ namespace Battleship_Grid_Game
             InitializeGrid(playerGrid, 121, 223);
             InitializeGrid(computerGrid, 640, 223);
 
+            UpdateRoundCounter();
 
 
         }
+
+
+
+        private void UpdateRoundCounter()
+        {
+            roundCounter.Text = "" + currentRound;
+            roundCounter.Refresh();
+        }
+
+        private void UpdateShipCounter()
+        {
+            int playerShipsRemainingCount = 3 - CountSunkShips(playerBoard);
+            playerShipsRemaining.Text = "" + playerShipsRemainingCount;
+            playerShipsRemaining.Refresh();
+
+            int computerShipsRemainingCount = 3 - CountSunkShips(computerBoard);
+            computerShipsRemaining.Text = " " + computerShipsRemainingCount;
+            computerShipsRemaining.Refresh();
+
+        }
+
 
         private void InitializeGrid(Button[,] grid, int startX, int startY)
         {
@@ -147,7 +173,8 @@ namespace Battleship_Grid_Game
                     UpdateEventHandlers(computerGrid, GridButton_Click);
 
 
-
+                    currentRound++;
+                    UpdateRoundCounter();
 
                 }
             } 
@@ -229,6 +256,9 @@ namespace Battleship_Grid_Game
 
             Console.WriteLine("GridButton_Click method called."); // adding a logging statement
 
+
+          
+
             if (!isPlayerTurn)
                 return;
 
@@ -245,6 +275,15 @@ namespace Battleship_Grid_Game
                 {
                     clickedButton.BackColor = Color.Red;
                     MessageBox.Show("BOOM! You sunk a battleship");
+                    UpdateShipCounter();
+
+                    if (CountSunkShips(computerBoard) == 3)
+                    {
+                        MessageBox.Show("You are too good! You sank all the computer's battleships. You win!");
+                        
+                        return;
+                    }
+
                     isPlayerTurn = false;
                     ComputerMove(null, null);
 
@@ -270,12 +309,15 @@ namespace Battleship_Grid_Game
 
 
 
+
+
             if (isPlayerTurn)
             {
                 return;
             }
 
 
+          
 
             Random random = new Random();
             int x = random.Next(4);
@@ -285,6 +327,17 @@ namespace Battleship_Grid_Game
             {
                 playerGrid[x, y].BackColor = Color.Red;
                 MessageBox.Show("BOOM! The Computer sunk one of your battleships");
+                UpdateShipCounter();
+                
+                if (CountSunkShips(playerBoard) == 3)
+                    {
+                        MessageBox.Show("You are awful! the computer sank all the of your battleships. You lose!");
+
+                    currentRound++;
+                    UpdateRoundCounter();
+                    return;
+
+                }
 
             }
             else
@@ -294,9 +347,32 @@ namespace Battleship_Grid_Game
                 isPlayerTurn = true;
 
             }
+
+            currentRound++;
+            UpdateRoundCounter();
         }
 
         
+        
+
+        private int CountSunkShips(int[,] board)
+        {
+
+            int count = 0;
+
+            for (int x = 0; x < board.GetLength(0); x++)
+            {
+                for (int y = 0; y < board.GetLength(1); y++)
+                {
+                    if (board[x, y] == 1 && playerGrid[x, y].BackColor == Color.Red || board[x, y] == 1 && computerGrid[x, y].BackColor == Color.Red)
+                    {
+                        count++;
+                    }
+                }
+            }
+
+            return count;
+        }
 
 
         private void game_Load(object sender, EventArgs e)
@@ -336,5 +412,6 @@ namespace Battleship_Grid_Game
 
 
         }
+
     }
 }
