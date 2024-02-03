@@ -202,6 +202,16 @@ namespace Battleship_Grid_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap end_game2 {
+            get {
+                object obj = ResourceManager.GetObject("end game2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exitbtn {
             get {
                 object obj = ResourceManager.GetObject("exitbtn", resourceCulture);
@@ -322,9 +332,29 @@ namespace Battleship_Grid_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MenuEasy {
+            get {
+                object obj = ResourceManager.GetObject("MenuEasy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap new_game {
             get {
                 object obj = ResourceManager.GetObject("new_game", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap new_game2 {
+            get {
+                object obj = ResourceManager.GetObject("new_game2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -365,6 +395,16 @@ namespace Battleship_Grid_Game.Properties {
         internal static System.Drawing.Bitmap Radar {
             get {
                 object obj = ResourceManager.GetObject("Radar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restart_game2 {
+            get {
+                object obj = ResourceManager.GetObject("restart_game2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

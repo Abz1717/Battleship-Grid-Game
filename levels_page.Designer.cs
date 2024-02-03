@@ -101,6 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battleship_Game_Background;
             this.ClientSize = new System.Drawing.Size(1374, 1029);
             this.Controls.Add(this.logo);

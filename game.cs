@@ -32,7 +32,7 @@ namespace Battleship_Grid_Game
         private bool isPlayerTurn = true;
         private int currentRound = 1;
 
-
+        int timeLeft = 15;
 
 
 
@@ -40,12 +40,17 @@ namespace Battleship_Grid_Game
         public game()
         {
 
-
+            
             InitializeComponent();
-            InitializeGrid(playerGrid, 121, 223);
-            InitializeGrid(computerGrid, 640, 223);
+            InitializeGrid(playerGrid, 102, 210);
+            InitializeGrid(computerGrid, 596, 210);
+            StopTimer();
+
+
 
             UpdateRoundCounter();
+
+
 
 
         }
@@ -65,16 +70,96 @@ namespace Battleship_Grid_Game
             playerShipsRemaining.Refresh();
 
             int computerShipsRemainingCount = 3 - CountSunkShips(computerBoard);
-            computerShipsRemaining.Text = " " + computerShipsRemainingCount;
+            computerShipsRemaining.Text = "" + computerShipsRemainingCount;
             computerShipsRemaining.Refresh();
 
         }
 
 
+        
+        private void GridButtonTimer_Tick(object sender, EventArgs e)
+        {
+
+            if (timeLeft > 0)
+            {
+                timeLeft = timeLeft - 1;
+                TimerLabel.Text = timeLeft + " seconds\nto make a move";
+            }
+            else
+            {
+                GridButtonTimer.Stop();
+                TimerLabel.Text = "Time is up! Computers turn";
+                isPlayerTurn = false;
+                ComputerMove(null, null);
+                return;
+            }
+
+
+
+        }
+
+        private void StartTimer()
+        {
+            GridButtonTimer.Start();
+        }
+
+        private void ResetTimer()
+        {
+            
+            timeLeft = 15;
+            TimerLabel.Text = timeLeft + " seconds";
+
+        }
+        private void StopTimer()
+        {
+            GridButtonTimer.Stop();
+        }
+
+
+        // had problems using these methods
+        /*
+        private async Task Countdown(int durationInSeconds)
+        {
+
+            int remainingSeconds = durationInSeconds;
+
+              while (remainingSeconds > 0 && !shipPlacementPhase)
+                {
+                    UpdateLabel($"Time left: {remainingSeconds} seconds");
+                    await Task.Delay(1000);
+                    remainingSeconds--;
+                }
+
+            if (!shipPlacementPhase)
+            {
+                UpdateLabel("Time's up! It's the computer's turn.");
+                isPlayerTurn = false;
+                ComputerMove(null, null);
+            }
+
+
+        }
+       
+
+        private void UpdateLabel(string text)
+        {
+            if (TimerLabel.InvokeRequired)
+            {
+                TimerLabel.Invoke(new Action(() => TimerLabel.Text = text));
+            }
+            else
+            {
+                TimerLabel.Text = text;
+            }
+
+            Console.WriteLine(text);
+        }
+         */
+
         private void InitializeGrid(Button[,] grid, int startX, int startY)
         {
-            int buttonWidth = 70;
-            int buttonHeight = 70;
+            int buttonWidth = 67;
+            int buttonHeight = 67;
             int horizontalSpacing = 2;
             int verticalSpacing = 2;
 
@@ -112,13 +197,14 @@ namespace Battleship_Grid_Game
                 }
             }
 
+            InstructionsLabel.Text = "Place your 3 ships";
 
         }
 
 
 
-        
-    private void UpdateEventHandlers(Button[,] grid, EventHandler newHandler)
+
+        private void UpdateEventHandlers(Button[,] grid, EventHandler newHandler)
         {
             for (int x = 0; x < 4; x++)
             {
@@ -135,7 +221,7 @@ namespace Battleship_Grid_Game
 
 
         //ship placement 
-        private void ShipPlacement_Click(object sender, EventArgs e)
+        private  void ShipPlacement_Click(object sender, EventArgs e)
         {
 
             Console.WriteLine("ShipPlacement_Click method called."); // adding a logging statement
@@ -145,15 +231,11 @@ namespace Battleship_Grid_Game
             {
                 MessageBox.Show("You can only place 3 ships. Click the onto the enemy's grid to attack and start the game. ");
                 shipPlacementPhase = false;
-
-           
-
                 return;
             }
 
 
             Button clickedButton = (Button)sender;
-         
             int x = GetXCoordinate(clickedButton);
             int y = GetYCoordinate(clickedButton);
 
@@ -181,13 +263,15 @@ namespace Battleship_Grid_Game
             else
             {
                 MessageBox.Show("You can't place your ship here. Find an empty cell!");
-
             }
 
+            InstructionsLabel.Text = "Attack the enemy";
+
+            StartTimer();
         }
 
 
-       
+
 
         private void PlaceComputerShips()
         {
@@ -254,11 +338,10 @@ namespace Battleship_Grid_Game
         private void GridButton_Click(object sender, EventArgs e)
         {
 
+            TimerLabel.Visible = false;
             Console.WriteLine("GridButton_Click method called."); // adding a logging statement
 
-
-          
-
+        
             if (!isPlayerTurn)
                 return;
 
@@ -287,13 +370,12 @@ namespace Battleship_Grid_Game
                     isPlayerTurn = false;
                     ComputerMove(null, null);
 
-
-
                 }
                 else
                 {
                     clickedButton.BackColor = Color.Gray;
                     MessageBox.Show("MISS! The computer's turn");
+                    UpdateShipCounter();
                     isPlayerTurn = false;
                     ComputerMove(null, null);
 
@@ -304,20 +386,19 @@ namespace Battleship_Grid_Game
 
 
         // computer move
-        private void ComputerMove(object sender, EventArgs e)
+        private async void ComputerMove(object sender, EventArgs e)
         {
 
+            StopTimer();
+            InstructionsLabel.Text = "Waiting for Enemy's move";
 
 
-
+            await Task.Delay(3000); // 3 seconds
 
             if (isPlayerTurn)
             {
                 return;
             }
-
-
-          
 
             Random random = new Random();
             int x = random.Next(4);
@@ -326,12 +407,14 @@ namespace Battleship_Grid_Game
             if (playerBoard[x, y] == 1) 
             {
                 playerGrid[x, y].BackColor = Color.Red;
-                MessageBox.Show("BOOM! The Computer sunk one of your battleships");
+                MessageBox.Show("BOOM! The enemy sunk one of your battleships");
                 UpdateShipCounter();
-                
+                isPlayerTurn = true;
+
+
                 if (CountSunkShips(playerBoard) == 3)
                     {
-                        MessageBox.Show("You are awful! the computer sank all the of your battleships. You lose!");
+                        MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
 
                     currentRound++;
                     UpdateRoundCounter();
@@ -343,17 +426,28 @@ namespace Battleship_Grid_Game
             else
             {
                 playerGrid[x, y].BackColor = Color.Yellow;
-                MessageBox.Show("MISS! Your turn");
+                MessageBox.Show("Enemy MISSED! Your turn");
                 isPlayerTurn = true;
 
             }
 
             currentRound++;
             UpdateRoundCounter();
+
+            ResetTimer();
+            StartTimer();
+
+            if (!TimerLabel.Visible)
+            {
+                TimerLabel.Visible = true;
+            }
+
+            InstructionsLabel.Text = "Attack the enemy";
+
         }
 
-        
-        
+
+
 
         private int CountSunkShips(int[,] board)
         {
@@ -375,9 +469,19 @@ namespace Battleship_Grid_Game
         }
 
 
+       
+
+
+
         private void game_Load(object sender, EventArgs e)
         {
             MessageBox.Show("Welcome to battleships. Place you ships onto your grid.");
+
+            game_panel.Location = new Point(                            // these 4 lines of code to postion the panel were taken from Overstackflow posted by Fredrik Mörk
+            this.ClientSize.Width / 2 - game_panel.Size.Width / 2,
+            this.ClientSize.Height / 2 - game_panel.Size.Height / 2);
+            game_panel.Anchor = AnchorStyles.None;
+
             PlaceComputerShips();
         }
 
@@ -413,5 +517,9 @@ namespace Battleship_Grid_Game
 
         }
 
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

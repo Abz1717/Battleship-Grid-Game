@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,28 +14,61 @@ namespace Battleship_Grid_Game
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
+
             InitializeComponent();
+
+
+            PlaySound("the_mole_hans_zimmer.wav", isBackgroundMusic: true);
+
+
         }
 
+        public static WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
-        private void PlaySound(string soundFileName)
+        private void PlaySound(string soundFileName, bool isBackgroundMusic)
         {
             string executablePath = AppDomain.CurrentDomain.BaseDirectory;
             string soundFilePath = Path.Combine(executablePath, "Resources", soundFileName);
 
+
+
             try
             {
-                System.Media.SoundPlayer sound = new System.Media.SoundPlayer(soundFilePath);
-                sound.Play();
+
+                if (isBackgroundMusic)
+                {
+                    
+                    wplayer.URL = soundFilePath;
+                    wplayer.controls.play();
+                    Console.WriteLine("Sound File Path: " + soundFilePath);
+
+                }
+                else
+                {
+                   
+                    using (System.Media.SoundPlayer sound = new System.Media.SoundPlayer(soundFilePath))
+                    {
+                        sound.Play();
+                        Console.WriteLine("Sound File Path: " + soundFilePath);
+
+                    }
+
+                }
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error playing sound " + ex.Message);
+                Console.WriteLine("Error playing sound " + ex.Message + ex.ToString());
             }
-             
         }
+
+        
+
+
+
 
         private void btn_start_MouseHover(object sender, EventArgs e)
         {
@@ -78,7 +112,7 @@ namespace Battleship_Grid_Game
 
         private void btn_start_Click(object sender, EventArgs e)
         {
-            PlaySound("button_press.wav");
+            PlaySound("button_press.wav", isBackgroundMusic: false);
             levels_page start = new levels_page();
             start.ShowDialog();
             this.Close();
@@ -87,27 +121,27 @@ namespace Battleship_Grid_Game
 
         private void btn_options_Click(object sender, EventArgs e)
         {
-            PlaySound("button_press.wav");
+            PlaySound("button_press.wav", isBackgroundMusic: false);
             options_page options = new options_page();
             options.ShowDialog();
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
-            PlaySound("button_press.wav");
+            PlaySound("button_press.wav", isBackgroundMusic: false);
             Application.Exit();
         }
 
         private void btn_rules_Click(object sender, EventArgs e)
         {
-            PlaySound("button_press.wav");
+            PlaySound("button_press.wav", isBackgroundMusic: false);
             rules_page rules = new rules_page();
             rules.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

@@ -131,6 +131,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\end game2.png" />
+    <None Include="Resources\restart_game2.png" />
+    <None Include="Resources\new_game2.png" />
+    <None Include="Resources\MenuEasy.png" />
     <None Include="Resources\end game1.png" />
     <None Include="Resources\hard Button %281%29.png" />
     <None Include="Resources\new_game.png" />
@@ -175,6 +179,25 @@
     <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide jj %286%29.png" />
     <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  %281%291.png" />
     <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
