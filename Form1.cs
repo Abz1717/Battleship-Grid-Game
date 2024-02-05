@@ -17,11 +17,13 @@ namespace Battleship_Grid_Game
 
         public Form1()
         {
-
+           
             InitializeComponent();
+            
 
 
             PlaySound("the_mole_hans_zimmer.wav", isBackgroundMusic: true);
+
 
 
         }
@@ -141,7 +143,11 @@ namespace Battleship_Grid_Game
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                                      (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2); 
+
+
         }
     }
 }

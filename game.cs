@@ -115,6 +115,8 @@ namespace Battleship_Grid_Game
             GridButtonTimer.Stop();
         }
 
+        
+
 
         // had problems using these methods
         /*
@@ -210,9 +212,9 @@ namespace Battleship_Grid_Game
             {
                 for (int y = 0; y < 4; y++)
                 {
-                    grid[x, y].Click -= ShipPlacement_Click; //Remove ship placement handler
-                    grid[x, y].Click -= GridButton_Click;     //Remove grid button handler
-                    grid[x, y].Click -= ComputerMove;         //Remove computer move handler
+                    grid[x, y].Click -= ShipPlacement_Click; //Removing ship placement handler
+                    grid[x, y].Click -= GridButton_Click;     //Removing grid button handler
+                    grid[x, y].Click -= ComputerMove;         //Removing computer move handler
 
                     grid[x, y].Click += newHandler;           //Adding a new handler
                 }
@@ -227,6 +229,11 @@ namespace Battleship_Grid_Game
             Console.WriteLine("ShipPlacement_Click method called."); // adding a logging statement
 
 
+
+            if (!isPlayerTurn || !shipPlacementPhase)
+                return;
+
+
             if (shipsPlacedCount >= 3)
             {
                 MessageBox.Show("You can only place 3 ships. Click the onto the enemy's grid to attack and start the game. ");
@@ -239,34 +246,35 @@ namespace Battleship_Grid_Game
             int x = GetXCoordinate(clickedButton);
             int y = GetYCoordinate(clickedButton);
 
-
-            if (playerBoard[x, y] == 0)
+            if (playerGrid[x, y] == clickedButton)
             {
-                playerBoard[x, y] = 1;
-                clickedButton.BackColor = Color.Green;
 
-                shipsPlacedCount++;
-
-                if (shipsPlacedCount == 3)
+                if (playerBoard[x, y] == 0)
                 {
-                    MessageBox.Show("All ships Placed. Click the onto the enemy's grid to attack and start the game. ");
-                    shipPlacementPhase = false;
+                    playerBoard[x, y] = 1;
+                    clickedButton.BackColor = Color.Green;
 
-                    UpdateEventHandlers(computerGrid, GridButton_Click);
+                    shipsPlacedCount++;
 
+                    if (shipsPlacedCount == 3)
+                    {
+                        MessageBox.Show("All ships Placed. Click the onto the enemy's grid to attack and start the game. ");
+                        shipPlacementPhase = false;
 
-                    currentRound++;
-                    UpdateRoundCounter();
+                        UpdateEventHandlers(computerGrid, GridButton_Click);
 
+                        InstructionsLabel.Text = "Attack the enemy";
+                        currentRound++;
+                        UpdateRoundCounter();
+
+                    }
                 }
-            } 
-            else
-            {
-                MessageBox.Show("You can't place your ship here. Find an empty cell!");
+                else
+                {
+                    MessageBox.Show("You can't place your ship here. Find an empty cell!");
+                }
+
             }
-
-            InstructionsLabel.Text = "Attack the enemy";
-
             StartTimer();
         }
 
@@ -363,7 +371,8 @@ namespace Battleship_Grid_Game
                     if (CountSunkShips(computerBoard) == 3)
                     {
                         MessageBox.Show("You are too good! You sank all the computer's battleships. You win!");
-                        
+                        InstructionsLabel.Text = "You are victorious";
+
                         return;
                     }
 
@@ -375,7 +384,6 @@ namespace Battleship_Grid_Game
                 {
                     clickedButton.BackColor = Color.Gray;
                     MessageBox.Show("MISS! The computer's turn");
-                    UpdateShipCounter();
                     isPlayerTurn = false;
                     ComputerMove(null, null);
 
@@ -415,6 +423,8 @@ namespace Battleship_Grid_Game
                 if (CountSunkShips(playerBoard) == 3)
                     {
                         MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
+                    InstructionsLabel.Text = "The enemy won";
+
 
                     currentRound++;
                     UpdateRoundCounter();
@@ -458,7 +468,11 @@ namespace Battleship_Grid_Game
             {
                 for (int y = 0; y < board.GetLength(1); y++)
                 {
-                    if (board[x, y] == 1 && playerGrid[x, y].BackColor == Color.Red || board[x, y] == 1 && computerGrid[x, y].BackColor == Color.Red)
+                    if (board[x, y] == 1 && playerGrid[x, y].BackColor == Color.Red)
+                    {
+                        count++;
+                    }
+                    else if (board[x, y] == 1 && computerGrid[x, y].BackColor == Color.Red)
                     {
                         count++;
                     }

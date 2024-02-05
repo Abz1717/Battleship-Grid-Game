@@ -33,9 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>icon22.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
@@ -131,6 +131,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="icon22.ico" />
+    <None Include="Resources\panel12.png" />
+    <None Include="Resources\22.png" />
+    <None Include="Resources\panel11.png" />
+    <None Include="Resources\3.png" />
+    <None Include="Resources\546761.png" />
+    <None Include="Resources\54676.png" />
+    <None Include="Resources\21.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\12.png" />
+    <None Include="Resources\panel2.png" />
+    <None Include="Resources\panel1.png" />
+    <None Include="Resources\panel.png" />
+    <None Include="Resources\Options %283%29.png" />
+    <None Include="Resources\Options %282%291.png" />
+    <None Include="Resources\Options %282%29.png" />
+    <None Include="Resources\rules3.png" />
+    <None Include="Resources\rules2.png" />
+    <None Include="Resources\rules1.png" />
+    <None Include="Resources\11.png" />
+    <None Include="Resources\1.png" />
     <None Include="Resources\end game2.png" />
     <None Include="Resources\restart_game2.png" />
     <None Include="Resources\new_game2.png" />

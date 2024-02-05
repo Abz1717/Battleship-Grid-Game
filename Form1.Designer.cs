@@ -57,7 +57,7 @@
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___4_;
             this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logo.Location = new System.Drawing.Point(261, 13);
+            this.logo.Location = new System.Drawing.Point(438, 32);
             this.logo.Margin = new System.Windows.Forms.Padding(4);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(506, 265);
@@ -76,8 +76,7 @@
             this.menu.Controls.Add(this.btn_options);
             this.menu.Controls.Add(this.btn_rules);
             this.menu.Controls.Add(this.btn_exit);
-            this.menu.Location = new System.Drawing.Point(273, 286);
-            this.menu.Margin = new System.Windows.Forms.Padding(4);
+            this.menu.Location = new System.Drawing.Point(450, 305);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(484, 708);
             this.menu.TabIndex = 0;
@@ -196,13 +195,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battleship_Game_Background;
-            this.ClientSize = new System.Drawing.Size(1027, 1052);
+            this.ClientSize = new System.Drawing.Size(1374, 1029);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.menu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
