@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.game3panel = new System.Windows.Forms.Panel();
-            this.EndGame = new System.Windows.Forms.PictureBox();
-            this.rulesBtn = new System.Windows.Forms.PictureBox();
-            this.NewGame = new System.Windows.Forms.PictureBox();
             this.InstructionsLabel = new System.Windows.Forms.Label();
             this.TimerLabel = new System.Windows.Forms.Label();
             this.computerShipsRemaining = new System.Windows.Forms.Label();
             this.playerShipsRemaining = new System.Windows.Forms.Label();
             this.roundCounter = new System.Windows.Forms.Label();
+            this.EndGame = new System.Windows.Forms.PictureBox();
+            this.rulesBtn = new System.Windows.Forms.PictureBox();
+            this.NewGame = new System.Windows.Forms.PictureBox();
+            this.GridButtonTimer = new System.Windows.Forms.Timer(this.components);
             this.game3panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EndGame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rulesBtn)).BeginInit();
@@ -61,36 +63,6 @@
             this.game3panel.Name = "game3panel";
             this.game3panel.Size = new System.Drawing.Size(1837, 1020);
             this.game3panel.TabIndex = 0;
-            // 
-            // EndGame
-            // 
-            this.EndGame.Image = global::Battleship_Grid_Game.Properties.Resources.end_game2;
-            this.EndGame.Location = new System.Drawing.Point(809, 886);
-            this.EndGame.Name = "EndGame";
-            this.EndGame.Size = new System.Drawing.Size(213, 88);
-            this.EndGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.EndGame.TabIndex = 15;
-            this.EndGame.TabStop = false;
-            // 
-            // rulesBtn
-            // 
-            this.rulesBtn.Image = global::Battleship_Grid_Game.Properties.Resources.rulesbtn;
-            this.rulesBtn.Location = new System.Drawing.Point(809, 793);
-            this.rulesBtn.Name = "rulesBtn";
-            this.rulesBtn.Size = new System.Drawing.Size(213, 87);
-            this.rulesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.rulesBtn.TabIndex = 14;
-            this.rulesBtn.TabStop = false;
-            // 
-            // NewGame
-            // 
-            this.NewGame.Image = global::Battleship_Grid_Game.Properties.Resources.new_game2;
-            this.NewGame.Location = new System.Drawing.Point(809, 700);
-            this.NewGame.Name = "NewGame";
-            this.NewGame.Size = new System.Drawing.Size(213, 87);
-            this.NewGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.NewGame.TabIndex = 13;
-            this.NewGame.TabStop = false;
             // 
             // InstructionsLabel
             // 
@@ -148,6 +120,42 @@
             this.roundCounter.TabIndex = 16;
             this.roundCounter.Text = "0";
             // 
+            // EndGame
+            // 
+            this.EndGame.Image = global::Battleship_Grid_Game.Properties.Resources.end_game2;
+            this.EndGame.Location = new System.Drawing.Point(809, 886);
+            this.EndGame.Name = "EndGame";
+            this.EndGame.Size = new System.Drawing.Size(213, 88);
+            this.EndGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.EndGame.TabIndex = 15;
+            this.EndGame.TabStop = false;
+            // 
+            // rulesBtn
+            // 
+            this.rulesBtn.Image = global::Battleship_Grid_Game.Properties.Resources.rulesbtn;
+            this.rulesBtn.Location = new System.Drawing.Point(809, 793);
+            this.rulesBtn.Name = "rulesBtn";
+            this.rulesBtn.Size = new System.Drawing.Size(213, 87);
+            this.rulesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rulesBtn.TabIndex = 14;
+            this.rulesBtn.TabStop = false;
+            // 
+            // NewGame
+            // 
+            this.NewGame.Image = global::Battleship_Grid_Game.Properties.Resources.new_game2;
+            this.NewGame.Location = new System.Drawing.Point(809, 700);
+            this.NewGame.Name = "NewGame";
+            this.NewGame.Size = new System.Drawing.Size(213, 87);
+            this.NewGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.NewGame.TabIndex = 13;
+            this.NewGame.TabStop = false;
+            // 
+            // GridButtonTimer
+            // 
+            this.GridButtonTimer.Enabled = true;
+            this.GridButtonTimer.Interval = 1000;
+            this.GridButtonTimer.Tick += new System.EventHandler(this.GridButtonTimer_Tick_1);
+            // 
             // game3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -177,5 +185,6 @@
         private System.Windows.Forms.Label computerShipsRemaining;
         private System.Windows.Forms.Label playerShipsRemaining;
         private System.Windows.Forms.Label roundCounter;
+        private System.Windows.Forms.Timer GridButtonTimer;
     }
 }

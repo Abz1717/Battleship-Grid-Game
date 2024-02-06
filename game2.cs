@@ -154,9 +154,9 @@ namespace Battleship_Grid_Game
                         MessageBox.Show("You can't place your battleship here. Find an empty cell!");
                     }
                 }
+
                 else if (destroyerPlacedCount < 1)
                 {
-
                     if (playerBoard[x, y] == 0)
                     {
                         playerBoard[x, y] = 2;
