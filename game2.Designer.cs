@@ -141,6 +141,7 @@
             this.rulesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.rulesBtn.TabIndex = 11;
             this.rulesBtn.TabStop = false;
+            this.rulesBtn.Click += new System.EventHandler(this.rulesBtn_Click);
             // 
             // NewGame
             // 
@@ -151,6 +152,7 @@
             this.NewGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.NewGame.TabIndex = 9;
             this.NewGame.TabStop = false;
+            this.NewGame.Click += new System.EventHandler(this.NewGame_Click);
             // 
             // GridButtonTimer
             // 

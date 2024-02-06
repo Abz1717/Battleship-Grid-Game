@@ -516,14 +516,12 @@ namespace Battleship_Grid_Game
             this.Close();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            game start = new game();
+            start.ShowDialog();
+            this.Close();
         }
 
         private void rulesBtn_Click(object sender, EventArgs e)

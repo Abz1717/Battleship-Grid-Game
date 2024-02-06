@@ -521,5 +521,18 @@ namespace Battleship_Grid_Game
             this.Close();
 
         }
+
+        private void rulesBtn_Click(object sender, EventArgs e)
+        {
+            rules_page rulesForm = new rules_page();
+            rulesForm.Show();
+        }
+
+        private void NewGame_Click(object sender, EventArgs e)
+        {
+            game2 start = new game2();
+            start.ShowDialog();
+            this.Close();
+        }
     }
 }

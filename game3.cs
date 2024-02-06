@@ -29,10 +29,8 @@ namespace Battleship_Grid_Game
         private bool isPlayerTurn = true;
         private int currentRound = 1;
 
-        int timeLeft = 15;
+        int timeLeft = 5;
 
-        private Random random = new Random();
-        private bool hintUsed = false;
 
         public game3()
         {
@@ -55,11 +53,11 @@ namespace Battleship_Grid_Game
 
         private void UpdateShipCounter()
         {
-            int playerShipsRemainingCount = 3 - CountSunkShips(playerBoard);
+            int playerShipsRemainingCount = 5 - CountSunkShips(playerBoard);
             playerShipsRemaining.Text = "" + playerShipsRemainingCount;
             playerShipsRemaining.Refresh();
 
-            int computerShipsRemainingCount = 3 - CountSunkShips(computerBoard);
+            int computerShipsRemainingCount = 5 - CountSunkShips(computerBoard);
             computerShipsRemaining.Text = "" + computerShipsRemainingCount;
             computerShipsRemaining.Refresh();
 
@@ -74,7 +72,7 @@ namespace Battleship_Grid_Game
         private void ResetTimer()
         {
 
-            timeLeft = 15;
+            timeLeft = 5;
             TimerLabel.Text = timeLeft + " seconds";
 
         }
@@ -93,9 +91,9 @@ namespace Battleship_Grid_Game
             int verticalSpacing = 2;
 
 
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < 8; x++)
             {
-                for (int y = 0; y < 4; y++)
+                for (int y = 0; y < 8; y++)
                 {
                     grid[x, y] = new Button();
                     grid[x, y].SetBounds(startX + (buttonWidth + horizontalSpacing) * x, startY + (buttonHeight + verticalSpacing) * y, buttonWidth, buttonHeight);
@@ -126,7 +124,7 @@ namespace Battleship_Grid_Game
                 }
             }
 
-            InstructionsLabel.Text = "Place your \n3 ships";
+            InstructionsLabel.Text = "Place your \n5 ships";
 
         }
 
@@ -135,9 +133,9 @@ namespace Battleship_Grid_Game
 
         private void UpdateEventHandlers(Button[,] grid, EventHandler newHandler)
         {
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < 8; x++)
             {
-                for (int y = 0; y < 4; y++)
+                for (int y = 0; y < 8; y++)
                 {
                     grid[x, y].Click -= ShipPlacement_Click; //Removing ship placement handler
                     grid[x, y].Click -= GridButton_Click;     //Removing grid button handler
@@ -161,9 +159,9 @@ namespace Battleship_Grid_Game
                 return;
 
 
-            if (shipsPlacedCount >= 3)
+            if (shipsPlacedCount >= 5)
             {
-                MessageBox.Show("You can only place 3 ships. Click the onto the enemy's grid to attack and start the game. ");
+                MessageBox.Show("You can only place 5 ships. Click the onto the enemy's grid to attack and start the game. ");
                 shipPlacementPhase = false;
                 return;
             }
@@ -183,7 +181,7 @@ namespace Battleship_Grid_Game
 
                     shipsPlacedCount++;
 
-                    if (shipsPlacedCount == 3)
+                    if (shipsPlacedCount == 5)
                     {
                         MessageBox.Show("All Battleships Placed. Click the onto the enemy's grid to attack and start the game. ");
                         shipPlacementPhase = false;
@@ -214,10 +212,10 @@ namespace Battleship_Grid_Game
 
 
 
-            while (computerShipsPlacedCount < 3)
+            while (computerShipsPlacedCount < 5)
             {
-                int x = random.Next(4);
-                int y = random.Next(4);
+                int x = random.Next(8);
+                int y = random.Next(8);
 
                 if (computerBoard[x, y] == 0)
                 {
@@ -232,9 +230,9 @@ namespace Battleship_Grid_Game
 
         private int GetXCoordinate(Button button)
         {
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < 8; x++)
             {
-                for (int y = 0; y < 4; y++)
+                for (int y = 0; y < 8; y++)
                 {
                     if (playerGrid[x, y] == button || computerGrid[x, y] == button)
                     {
@@ -250,9 +248,9 @@ namespace Battleship_Grid_Game
 
         private int GetYCoordinate(Button button)
         {
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < 8; x++)
             {
-                for (int y = 0; y < 4; y++)
+                for (int y = 0; y < 8; y++)
                 {
                     if (playerGrid[x, y] == button || computerGrid[x, y] == button)
                     {
@@ -287,7 +285,7 @@ namespace Battleship_Grid_Game
             Console.WriteLine($"Clicked on computerBoard[{x}, {y}]"); // debuging output
 
 
-            if (x >= 0 && x < 4 && y >= 0 && y < 4)
+            if (x >= 0 && x < 8 && y >= 0 && y < 8)
             {
                 if (computerBoard[x, y] == 1)
                 {
@@ -295,7 +293,7 @@ namespace Battleship_Grid_Game
                     MessageBox.Show("BOOM! You sunk a battleship");
                     UpdateShipCounter();
 
-                    if (CountSunkShips(computerBoard) == 3)
+                    if (CountSunkShips(computerBoard) == 5)
                     {
                         MessageBox.Show("You are too good! You sank all the Enemy's battleships. You win!");
                         InstructionsLabel.Text = "You are victorious";
@@ -336,8 +334,8 @@ namespace Battleship_Grid_Game
             }
 
             Random random = new Random();
-            int x = random.Next(4);
-            int y = random.Next(4);
+            int x = random.Next(8);
+            int y = random.Next(8);
 
             if (playerBoard[x, y] == 1)
             {
@@ -347,7 +345,7 @@ namespace Battleship_Grid_Game
                 isPlayerTurn = true;
 
 
-                if (CountSunkShips(playerBoard) == 3)
+                if (CountSunkShips(playerBoard) == 5)
                 {
                     MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
                     InstructionsLabel.Text = "The enemy won";
@@ -473,6 +471,25 @@ namespace Battleship_Grid_Game
                 ComputerMove(null, null);
                 return;
             }
+        }
+
+        private void game3panel_Paint(object sender, PaintEventArgs e)
+        {
+            game3panel.SendToBack();
+
+        }
+
+        private void rulesBtn_Click_1(object sender, EventArgs e)
+        {
+            rules_page rulesForm = new rules_page();
+            rulesForm.Show();
+        }
+
+        private void NewGame_Click(object sender, EventArgs e)
+        {
+            game3 start = new game3();
+            start.ShowDialog();
+            this.Close();
         }
     }
 }

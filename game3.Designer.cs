@@ -63,6 +63,7 @@
             this.game3panel.Name = "game3panel";
             this.game3panel.Size = new System.Drawing.Size(1837, 1020);
             this.game3panel.TabIndex = 0;
+            this.game3panel.Paint += new System.Windows.Forms.PaintEventHandler(this.game3panel_Paint);
             // 
             // InstructionsLabel
             // 
@@ -139,6 +140,7 @@
             this.rulesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.rulesBtn.TabIndex = 14;
             this.rulesBtn.TabStop = false;
+            this.rulesBtn.Click += new System.EventHandler(this.rulesBtn_Click_1);
             // 
             // NewGame
             // 
@@ -149,6 +151,7 @@
             this.NewGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.NewGame.TabIndex = 13;
             this.NewGame.TabStop = false;
+            this.NewGame.Click += new System.EventHandler(this.NewGame_Click);
             // 
             // GridButtonTimer
             // 
@@ -160,10 +163,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battleship_Game_Background;
             this.ClientSize = new System.Drawing.Size(1951, 1055);
             this.Controls.Add(this.game3panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "game3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "game3";
             this.game3panel.ResumeLayout(false);
             this.game3panel.PerformLayout();
