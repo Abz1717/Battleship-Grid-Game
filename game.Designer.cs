@@ -30,19 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.game_panel = new System.Windows.Forms.Panel();
+            this.HintButton = new System.Windows.Forms.Button();
+            this.rulesBtn = new System.Windows.Forms.PictureBox();
+            this.InstructionsLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TimerLabel = new System.Windows.Forms.Label();
             this.computerShipsRemaining = new System.Windows.Forms.Label();
             this.playerShipsRemaining = new System.Windows.Forms.Label();
             this.roundCounter = new System.Windows.Forms.Label();
             this.EndGame = new System.Windows.Forms.PictureBox();
-            this.Restart = new System.Windows.Forms.PictureBox();
             this.GridButtonTimer = new System.Windows.Forms.Timer(this.components);
-            this.InstructionsLabel = new System.Windows.Forms.Label();
             this.game_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EndGame)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Restart)).BeginInit();
             this.SuspendLayout();
             // 
             // game_panel
@@ -50,6 +51,8 @@
             this.game_panel.BackColor = System.Drawing.Color.Navy;
             this.game_panel.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.MenuEasy;
             this.game_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.game_panel.Controls.Add(this.HintButton);
+            this.game_panel.Controls.Add(this.rulesBtn);
             this.game_panel.Controls.Add(this.InstructionsLabel);
             this.game_panel.Controls.Add(this.pictureBox1);
             this.game_panel.Controls.Add(this.TimerLabel);
@@ -57,7 +60,6 @@
             this.game_panel.Controls.Add(this.playerShipsRemaining);
             this.game_panel.Controls.Add(this.roundCounter);
             this.game_panel.Controls.Add(this.EndGame);
-            this.game_panel.Controls.Add(this.Restart);
             this.game_panel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.game_panel.Location = new System.Drawing.Point(67, 22);
             this.game_panel.Margin = new System.Windows.Forms.Padding(4);
@@ -65,6 +67,41 @@
             this.game_panel.Size = new System.Drawing.Size(1837, 1020);
             this.game_panel.TabIndex = 0;
             this.game_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.game_panel_Paint);
+            // 
+            // HintButton
+            // 
+            this.HintButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HintButton.Location = new System.Drawing.Point(1342, 942);
+            this.HintButton.Name = "HintButton";
+            this.HintButton.Size = new System.Drawing.Size(184, 38);
+            this.HintButton.TabIndex = 11;
+            this.HintButton.Text = "1 Hint Left";
+            this.HintButton.UseVisualStyleBackColor = true;
+            this.HintButton.Click += new System.EventHandler(this.HintButton_Click);
+            // 
+            // rulesBtn
+            // 
+            this.rulesBtn.Image = global::Battleship_Grid_Game.Properties.Resources.rulesbtn;
+            this.rulesBtn.Location = new System.Drawing.Point(815, 789);
+            this.rulesBtn.Name = "rulesBtn";
+            this.rulesBtn.Size = new System.Drawing.Size(213, 87);
+            this.rulesBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.rulesBtn.TabIndex = 10;
+            this.rulesBtn.TabStop = false;
+            this.rulesBtn.Click += new System.EventHandler(this.rulesBtn_Click);
+            // 
+            // InstructionsLabel
+            // 
+            this.InstructionsLabel.AutoSize = true;
+            this.InstructionsLabel.BackColor = System.Drawing.Color.AliceBlue;
+            this.InstructionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InstructionsLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.InstructionsLabel.Location = new System.Drawing.Point(809, 187);
+            this.InstructionsLabel.Name = "InstructionsLabel";
+            this.InstructionsLabel.Size = new System.Drawing.Size(218, 62);
+            this.InstructionsLabel.TabIndex = 9;
+            this.InstructionsLabel.Text = "Instructions for \r\nplayer\r\n";
+            this.InstructionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -75,6 +112,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // TimerLabel
             // 
@@ -130,35 +168,11 @@
             this.EndGame.TabStop = false;
             this.EndGame.Click += new System.EventHandler(this.EndGame_Click);
             // 
-            // Restart
-            // 
-            this.Restart.Image = global::Battleship_Grid_Game.Properties.Resources.restart_game2;
-            this.Restart.Location = new System.Drawing.Point(814, 785);
-            this.Restart.Name = "Restart";
-            this.Restart.Size = new System.Drawing.Size(214, 90);
-            this.Restart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Restart.TabIndex = 1;
-            this.Restart.TabStop = false;
-            this.Restart.Click += new System.EventHandler(this.Restart_Click);
-            // 
             // GridButtonTimer
             // 
             this.GridButtonTimer.Enabled = true;
             this.GridButtonTimer.Interval = 1000;
             this.GridButtonTimer.Tick += new System.EventHandler(this.GridButtonTimer_Tick);
-            // 
-            // InstructionsLabel
-            // 
-            this.InstructionsLabel.AutoSize = true;
-            this.InstructionsLabel.BackColor = System.Drawing.Color.AliceBlue;
-            this.InstructionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstructionsLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.InstructionsLabel.Location = new System.Drawing.Point(770, 190);
-            this.InstructionsLabel.Name = "InstructionsLabel";
-            this.InstructionsLabel.Size = new System.Drawing.Size(298, 31);
-            this.InstructionsLabel.TabIndex = 9;
-            this.InstructionsLabel.Text = "Instructions for player\r\n";
-            this.InstructionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // game
             // 
@@ -182,9 +196,9 @@
             this.Load += new System.EventHandler(this.game_Load);
             this.game_panel.ResumeLayout(false);
             this.game_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rulesBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EndGame)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Restart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -199,7 +213,8 @@
         private System.Windows.Forms.Timer GridButtonTimer;
         private System.Windows.Forms.Label TimerLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox Restart;
         private System.Windows.Forms.Label InstructionsLabel;
+        private System.Windows.Forms.PictureBox rulesBtn;
+        private System.Windows.Forms.Button HintButton;
     }
 }

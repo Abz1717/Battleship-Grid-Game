@@ -153,6 +153,16 @@ namespace Battleship_Grid_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _Game_Hard_level {
+            get {
+                object obj = ResourceManager.GetObject("_Game Hard level", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Battlemenu {
             get {
                 object obj = ResourceManager.GetObject("Battlemenu", resourceCulture);
@@ -315,6 +325,16 @@ namespace Battleship_Grid_Game.Properties {
         internal static System.Drawing.Bitmap exitbtn_hover {
             get {
                 object obj = ResourceManager.GetObject("exitbtn_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Game_Medium_level {
+            get {
+                object obj = ResourceManager.GetObject("Game Medium level", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

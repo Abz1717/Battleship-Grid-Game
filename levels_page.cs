@@ -23,5 +23,19 @@ namespace Battleship_Grid_Game
             start.ShowDialog();
             this.Close();
         }
+
+        private void MediumBtn_Click(object sender, EventArgs e)
+        {
+            game2 start = new game2();
+            start.ShowDialog();
+            this.Close();
+        }
+
+        private void HardBtn_Click(object sender, EventArgs e)
+        {
+            game3 start = new game3();
+            start.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace Battleship_Grid_Game
 
 
 
-        bool shipPlacementPhase = true; 
+        bool shipPlacementPhase = true;
         int shipsPlacedCount = 0;
         int computerShipsPlacedCount = 0;
 
@@ -34,13 +34,15 @@ namespace Battleship_Grid_Game
 
         int timeLeft = 15;
 
+        private Random random = new Random();
+        private bool hintUsed = false;
 
 
 
         public game()
         {
 
-            
+
             InitializeComponent();
             InitializeGrid(playerGrid, 102, 210);
             InitializeGrid(computerGrid, 596, 210);
@@ -76,7 +78,7 @@ namespace Battleship_Grid_Game
         }
 
 
-        
+
         private void GridButtonTimer_Tick(object sender, EventArgs e)
         {
 
@@ -105,7 +107,7 @@ namespace Battleship_Grid_Game
 
         private void ResetTimer()
         {
-            
+
             timeLeft = 15;
             TimerLabel.Text = timeLeft + " seconds";
 
@@ -115,7 +117,7 @@ namespace Battleship_Grid_Game
             GridButtonTimer.Stop();
         }
 
-        
+
 
 
         // had problems using these methods
@@ -199,7 +201,7 @@ namespace Battleship_Grid_Game
                 }
             }
 
-            InstructionsLabel.Text = "Place your 3 ships";
+            InstructionsLabel.Text = "Place your \n3 ships";
 
         }
 
@@ -223,7 +225,7 @@ namespace Battleship_Grid_Game
 
 
         //ship placement 
-        private  void ShipPlacement_Click(object sender, EventArgs e)
+        private void ShipPlacement_Click(object sender, EventArgs e)
         {
 
             Console.WriteLine("ShipPlacement_Click method called."); // adding a logging statement
@@ -258,7 +260,7 @@ namespace Battleship_Grid_Game
 
                     if (shipsPlacedCount == 3)
                     {
-                        MessageBox.Show("All ships Placed. Click the onto the enemy's grid to attack and start the game. ");
+                        MessageBox.Show("All Battleships Placed. Click the onto the enemy's grid to attack and start the game. ");
                         shipPlacementPhase = false;
 
                         UpdateEventHandlers(computerGrid, GridButton_Click);
@@ -266,16 +268,16 @@ namespace Battleship_Grid_Game
                         InstructionsLabel.Text = "Attack the enemy";
                         currentRound++;
                         UpdateRoundCounter();
+                        StartTimer();
+
 
                     }
                 }
                 else
                 {
-                    MessageBox.Show("You can't place your ship here. Find an empty cell!");
+                    MessageBox.Show("You can't place your Battleship here. Find an empty cell!");
                 }
-
             }
-            StartTimer();
         }
 
 
@@ -317,7 +319,7 @@ namespace Battleship_Grid_Game
             }
             Console.WriteLine("GetXCoordinate: Button not found");
 
-            return -1; 
+            return -1;
         }
 
 
@@ -335,11 +337,11 @@ namespace Battleship_Grid_Game
             }
             Console.WriteLine("GetYCoordinate: Button not found");
 
-            return -1; 
+            return -1;
         }
 
 
-     
+
 
         //players move
 
@@ -349,7 +351,7 @@ namespace Battleship_Grid_Game
             TimerLabel.Visible = false;
             Console.WriteLine("GridButton_Click method called."); // adding a logging statement
 
-        
+
             if (!isPlayerTurn)
                 return;
 
@@ -370,7 +372,7 @@ namespace Battleship_Grid_Game
 
                     if (CountSunkShips(computerBoard) == 3)
                     {
-                        MessageBox.Show("You are too good! You sank all the computer's battleships. You win!");
+                        MessageBox.Show("You are too good! You sank all the Enemy's battleships. You win!");
                         InstructionsLabel.Text = "You are victorious";
 
                         return;
@@ -383,13 +385,13 @@ namespace Battleship_Grid_Game
                 else
                 {
                     clickedButton.BackColor = Color.Gray;
-                    MessageBox.Show("MISS! The computer's turn");
+                    MessageBox.Show("MISS! The Enemy's turn");
                     isPlayerTurn = false;
                     ComputerMove(null, null);
 
                 }
             }
-           
+
         }
 
 
@@ -412,7 +414,7 @@ namespace Battleship_Grid_Game
             int x = random.Next(4);
             int y = random.Next(4);
 
-            if (playerBoard[x, y] == 1) 
+            if (playerBoard[x, y] == 1)
             {
                 playerGrid[x, y].BackColor = Color.Red;
                 MessageBox.Show("BOOM! The enemy sunk one of your battleships");
@@ -421,8 +423,8 @@ namespace Battleship_Grid_Game
 
 
                 if (CountSunkShips(playerBoard) == 3)
-                    {
-                        MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
+                {
+                    MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
                     InstructionsLabel.Text = "The enemy won";
 
 
@@ -483,7 +485,9 @@ namespace Battleship_Grid_Game
         }
 
 
-       
+
+
+
 
 
 
@@ -495,6 +499,8 @@ namespace Battleship_Grid_Game
             this.ClientSize.Width / 2 - game_panel.Size.Width / 2,
             this.ClientSize.Height / 2 - game_panel.Size.Height / 2);
             game_panel.Anchor = AnchorStyles.None;
+
+            
 
             PlaceComputerShips();
         }
@@ -510,30 +516,45 @@ namespace Battleship_Grid_Game
             this.Close();
         }
 
-        private void Restart_Click(object sender, EventArgs e)
-        {
-
-            RestartGame();
-
-
-        }
-
-        private void RestartGame()
-        {
-
-            game gameForm = new game();
-            gameForm.Show();
-
-            this.Close();
-
-
-
-
-        }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rulesBtn_Click(object sender, EventArgs e)
+        {
+            rules_page rulesForm = new rules_page();
+            rulesForm.Show();
+        }
+
+
+        private void HintButton_Click(object sender, EventArgs e)
+        {
+            if (!hintUsed)
+            {
+                HintButton.Text = "0 Hints Left";
+                ShowComputerShipHint();
+                hintUsed = true;
+
+            }
+        }
+
+        private void ShowComputerShipHint()
+        {
+            int x, y;
+
+            do
+            {
+                x = random.Next(4);
+                y = random.Next(4);
+            } while (computerBoard[x, y] == 0);
+
+            computerGrid[x, y].BackColor = Color.Yellow;
         }
     }
 }

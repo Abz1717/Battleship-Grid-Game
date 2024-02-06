@@ -65,6 +65,18 @@
     <Compile Include="game.Designer.cs">
       <DependentUpon>game.cs</DependentUpon>
     </Compile>
+    <Compile Include="game2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="game2.Designer.cs">
+      <DependentUpon>game2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="game3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="game3.Designer.cs">
+      <DependentUpon>game3.cs</DependentUpon>
+    </Compile>
     <Compile Include="levels_page.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="game.resx">
       <DependentUpon>game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="game2.resx">
+      <DependentUpon>game2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="game3.resx">
+      <DependentUpon>game3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="levels_page.resx">
       <DependentUpon>levels_page.cs</DependentUpon>
@@ -132,6 +150,8 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Content Include="icon22.ico" />
+    <None Include="Resources\_Game Hard level.png" />
+    <None Include="Resources\Game Medium level.png" />
     <None Include="Resources\panel12.png" />
     <None Include="Resources\22.png" />
     <None Include="Resources\panel11.png" />
