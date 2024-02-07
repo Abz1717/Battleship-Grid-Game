@@ -146,7 +146,7 @@ namespace Battleship_Grid_Game
 
                         if (shipsPlacedCount == 4)
                         {
-                            MessageBox.Show("All Battleships Placed. Now place your destroyer \n(Destoryers do not count as battleships, they are used as counters)");
+                            MessageBox.Show("All Battleships Placed. Now place your destroyer \n(Remember destroyers do not count as battleships, they are used as counters/traps)");
                         }
                     }
                     else
@@ -211,9 +211,10 @@ namespace Battleship_Grid_Game
 
                     if (computerBoard[x, y] == 0)
                     {
-                    computerBoard[x, y] = 2; 
+                    computerBoard[x, y] = 2;
                     computerDestroyerPlacedCount++;
                     computerGrid[x, y].BackColor = Color.Orange;
+
                 }
 
             }
@@ -233,6 +234,11 @@ namespace Battleship_Grid_Game
 
             Console.WriteLine($"Clicked on computerBoard[{x}, {y}]"); // debuging output
 
+            if (CountSunkShips(playerBoard) == 4)
+            {
+                InstructionsLabel.Text = "The enemy won";
+            }
+
             if (!isPlayerTurn)
                 return;
 
@@ -241,6 +247,7 @@ namespace Battleship_Grid_Game
 
             if (computerBoard[x, y] == 1)
             {
+                computerBoard[x, y] = -1;
                 clickedButton.BackColor = Color.Red;
                 MessageBox.Show("BOOM! You sunk a battleship");
                 UpdateShipCounter();
@@ -263,14 +270,14 @@ namespace Battleship_Grid_Game
 
 
                 Random random = new Random();
-                int xPlayer, yPlayer;
 
                 do
                 {
-                    xPlayer = random.Next(6);
-                    yPlayer = random.Next(6);
-                } while (playerBoard[xPlayer, yPlayer] != 1);
+                    x = random.Next(6);
+                    y = random.Next(6);
+                } while (playerBoard[x, y] != 1);
 
+                playerBoard[x, y] = -1;
                 playerGrid[x, y].BackColor = Color.Red;
                 MessageBox.Show("The destroyer sank one of your ships!");
                 UpdateShipCounter();
@@ -304,6 +311,12 @@ namespace Battleship_Grid_Game
             Console.WriteLine("ComputerMove method called."); // adding a logging statement
 
 
+            if (CountSunkShips(computerBoard) == 4)
+            {
+                InstructionsLabel.Text = "You won";
+            }
+
+
             try
             {
 
@@ -325,6 +338,7 @@ namespace Battleship_Grid_Game
 
                 if (playerBoard[x, y] == 1)
                 {
+                    playerBoard[x, y] = -1;
                     playerGrid[x, y].BackColor = Color.Red;
 
                     MessageBox.Show("BOOM! The enemy sunk one of your battleships");
@@ -344,6 +358,22 @@ namespace Battleship_Grid_Game
 
                     }
 
+                }
+                else if (playerBoard[x, y] == 2) // If the computer hits the player's destroyer
+                {
+                    playerGrid[x, y].BackColor = Color.DarkRed;
+                    MessageBox.Show("BOOM! The enemy hit your destroyer!");
+
+                    do
+                    {
+                        x = random.Next(6);
+                        y = random.Next(6);
+                    } while (computerBoard[x, y] != 1); // Find a battleship to sink
+
+                    computerBoard[x, y] = -1;
+                    computerGrid[x, y].BackColor = Color.Red;
+                    MessageBox.Show("The destroyer sank one of your ships!");
+                    UpdateShipCounter();
                 }
                 else
                 {
@@ -420,11 +450,11 @@ namespace Battleship_Grid_Game
             {
                 for (int y = 0; y < board.GetLength(1); y++)
                 {
-                    if (board[x, y] == 1 && playerGrid[x, y].BackColor == Color.Red)
+                    if (board[x, y] == -1 && board == playerBoard && playerGrid[x, y].BackColor == Color.Red)
                     {
                         count++;
                     }
-                    else if (board[x, y] == 1 && computerGrid[x, y].BackColor == Color.Red)
+                    else if (board[x, y] == -1 && board == computerBoard && computerGrid[x, y].BackColor == Color.Red)
                     {
                         count++;
                     }
