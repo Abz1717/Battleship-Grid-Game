@@ -28,6 +28,7 @@ namespace Battleship_Grid_Game
 
         private bool isPlayerTurn = true;
         private int currentRound = 1;
+        private bool GameFinished = false;
 
         int timeLeft = 5;
 
@@ -297,6 +298,9 @@ namespace Battleship_Grid_Game
                     {
                         MessageBox.Show("You are too good! You sank all the Enemy's battleships. You win!");
                         InstructionsLabel.Text = "You are victorious";
+                        GameFinished = true;
+                        DisableGridButtons();
+                   
 
                         return;
                     }
@@ -372,7 +376,9 @@ namespace Battleship_Grid_Game
                 {
                     MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
                     InstructionsLabel.Text = "The enemy won";
-
+                    GameFinished = true;
+                    DisableGridButtons();
+                
 
                     currentRound++;
                     UpdateRoundCounter();
