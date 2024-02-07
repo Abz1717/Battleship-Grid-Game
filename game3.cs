@@ -14,11 +14,11 @@ namespace Battleship_Grid_Game
     public partial class game3 : Form
     {
 
-        Button[,] playerGrid = new Button[4, 4];
-        Button[,] computerGrid = new Button[4, 4];
+        Button[,] playerGrid = new Button[8, 8];
+        Button[,] computerGrid = new Button[8, 8];
 
-        int[,] playerBoard = new int[4, 4];
-        int[,] computerBoard = new int[4, 4];
+        int[,] playerBoard = new int[8, 8];
+        int[,] computerBoard = new int[8, 8];
 
 
 
@@ -85,10 +85,10 @@ namespace Battleship_Grid_Game
 
         private void InitializeGrid(Button[,] grid, int startX, int startY)
         {
-            int buttonWidth = 67;
-            int buttonHeight = 67;
-            int horizontalSpacing = 2;
-            int verticalSpacing = 2;
+            int buttonWidth = 40;
+            int buttonHeight = 40;
+            int horizontalSpacing = 0;
+            int verticalSpacing = 0;
 
 
             for (int x = 0; x < 8; x++)
