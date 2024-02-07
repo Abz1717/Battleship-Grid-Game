@@ -32,6 +32,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon22.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,10 +59,61 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="game.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="game.Designer.cs">
+      <DependentUpon>game.cs</DependentUpon>
+    </Compile>
+    <Compile Include="game2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="game2.Designer.cs">
+      <DependentUpon>game2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="game3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="game3.Designer.cs">
+      <DependentUpon>game3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="levels_page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="levels_page.Designer.cs">
+      <DependentUpon>levels_page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="options_page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="options_page.Designer.cs">
+      <DependentUpon>options_page.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rules_page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rules_page.Designer.cs">
+      <DependentUpon>rules_page.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="game.resx">
+      <DependentUpon>game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="game2.resx">
+      <DependentUpon>game2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="game3.resx">
+      <DependentUpon>game3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="levels_page.resx">
+      <DependentUpon>levels_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="options_page.resx">
+      <DependentUpon>options_page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -67,6 +125,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="rules_page.resx">
+      <DependentUpon>rules_page.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -82,6 +143,103 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide  %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="icon22.ico" />
+    <None Include="Resources\Rules and information.png" />
+    <None Include="Resources\_Game Hard level.png" />
+    <None Include="Resources\Game Medium level.png" />
+    <None Include="Resources\panel12.png" />
+    <None Include="Resources\22.png" />
+    <None Include="Resources\panel11.png" />
+    <None Include="Resources\3.png" />
+    <None Include="Resources\546761.png" />
+    <None Include="Resources\54676.png" />
+    <None Include="Resources\21.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\12.png" />
+    <None Include="Resources\panel2.png" />
+    <None Include="Resources\panel1.png" />
+    <None Include="Resources\panel.png" />
+    <None Include="Resources\Options %283%29.png" />
+    <None Include="Resources\Options %282%291.png" />
+    <None Include="Resources\Options %282%29.png" />
+    <None Include="Resources\rules3.png" />
+    <None Include="Resources\rules2.png" />
+    <None Include="Resources\rules1.png" />
+    <None Include="Resources\11.png" />
+    <None Include="Resources\1.png" />
+    <None Include="Resources\end game2.png" />
+    <None Include="Resources\restart_game2.png" />
+    <None Include="Resources\new_game2.png" />
+    <None Include="Resources\MenuEasy.png" />
+    <None Include="Resources\end game1.png" />
+    <None Include="Resources\hard Button %281%29.png" />
+    <None Include="Resources\new_game.png" />
+    <None Include="Resources\end game.png" />
+    <None Include="Resources\hard Button.png" />
+    <None Include="Resources\medium Button.png" />
+    <None Include="Resources\easy Button %281%29.png" />
+    <None Include="Resources\Copy of Options.png" />
+    <None Include="Resources\Radar.png" />
+    <None Include="Resources\Battleship Game Background.png" />
+    <None Include="Resources\menu %288%29.png" />
+    <None Include="Resources\Battlemenu.png" />
+    <None Include="Resources\menu %287%29.png" />
+    <None Include="Resources\menu %286%29.png" />
+    <None Include="Resources\menu %285%29.png" />
+    <None Include="Resources\menu %284%29.png" />
+    <None Include="Resources\menu %283%29.png" />
+    <None Include="Resources\menu %282%29.png" />
+    <None Include="Resources\menu %281%29.png" />
+    <None Include="Resources\button_press.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\the_mole_hans_zimmer.wav" />
+    <None Include="Resources\rulesMenu.png" />
+    <None Include="Resources\sound_graphic1.png" />
+    <None Include="Resources\Sound.png" />
+    <None Include="Resources\optionsMenu.png" />
+    <None Include="Resources\menu21.png" />
+    <None Include="Resources\menu2.png" />
+    <None Include="Resources\exitbtn.png" />
+    <None Include="Resources\rulesbtn.png" />
+    <None Include="Resources\starttbn.png" />
+    <None Include="Resources\optionsbtn.png" />
+    <None Include="Resources\rulesbtn_hover.png" />
+    <None Include="Resources\optionsbtn_hover.png" />
+    <None Include="Resources\startbtn_hover.png" />
+    <None Include="Resources\exitbtn_hover.png" />
+    <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  %284%29.png" />
+    <None Include="Resources\iconBattleship %282%29.png" />
+    <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide  %284%29.png" />
+    <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide77  %285%29.png" />
+    <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Lessons First slide jj %286%29.png" />
+    <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  %281%291.png" />
+    <None Include="Resources\Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
