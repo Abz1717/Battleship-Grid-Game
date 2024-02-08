@@ -47,8 +47,8 @@ namespace Battleship_Grid_Game
 
 
             InitializeComponent();
-            InitializeGrid(playerGrid, 102, 210);
-            InitializeGrid(computerGrid, 596, 210);
+            InitializeGrid(playerGrid, 110, 214);
+            InitializeGrid(computerGrid, 602, 214);
             StopTimer();
 
 
@@ -61,12 +61,15 @@ namespace Battleship_Grid_Game
         }
 
 
-
+        // Method to update the rounds in the game
         private void UpdateRoundCounter()
         {
             roundCounter.Text = "" + currentRound;
             roundCounter.Refresh();
         }
+
+
+        // Method to update the remaining ships on display  
 
         private void UpdateShipCounter()
         {
@@ -81,7 +84,7 @@ namespace Battleship_Grid_Game
         }
 
 
-
+        // Timer/Countdown for the players turn 
         private void GridButtonTimer_Tick(object sender, EventArgs e)
         {
 
@@ -119,50 +122,9 @@ namespace Battleship_Grid_Game
         {
             GridButtonTimer.Stop();
         }
+        
 
-
-
-
-        // had problems using these methods
-        /*
-        private async Task Countdown(int durationInSeconds)
-        {
-
-            int remainingSeconds = durationInSeconds;
-
-              while (remainingSeconds > 0 && !shipPlacementPhase)
-                {
-                    UpdateLabel($"Time left: {remainingSeconds} seconds");
-                    await Task.Delay(1000);
-                    remainingSeconds--;
-                }
-
-            if (!shipPlacementPhase)
-            {
-                UpdateLabel("Time's up! It's the computer's turn.");
-                isPlayerTurn = false;
-                ComputerMove(null, null);
-            }
-
-
-        }
-       
-
-        private void UpdateLabel(string text)
-        {
-            if (TimerLabel.InvokeRequired)
-            {
-                TimerLabel.Invoke(new Action(() => TimerLabel.Text = text));
-            }
-            else
-            {
-                TimerLabel.Text = text;
-            }
-
-            Console.WriteLine(text);
-        }
-         */
-
+        // Initializing both grids for the player and computer
         private void InitializeGrid(Button[,] grid, int startX, int startY)
         {
             int buttonWidth = 67;
@@ -211,6 +173,7 @@ namespace Battleship_Grid_Game
 
 
 
+        // Method to update eventhandlers mainly after the shiplacement phase is over
         private void UpdateEventHandlers(Button[,] grid, EventHandler newHandler)
         {
             for (int x = 0; x < 4; x++)
@@ -227,7 +190,8 @@ namespace Battleship_Grid_Game
         }
 
 
-        //ship placement 
+            
+        // Event handler to handle players shipplacements 
         private void ShipPlacement_Click(object sender, EventArgs e)
         {
 
@@ -282,7 +246,9 @@ namespace Battleship_Grid_Game
                 }
             }
         }
- private void PlaceComputerShips()
+
+        // Method for computer ship placement 
+        private void PlaceComputerShips()
         {
             Random random = new Random();
 
@@ -304,6 +270,8 @@ namespace Battleship_Grid_Game
             }
         }
 
+
+        // Methods to get X and Y coordinates 
         private int GetXCoordinate(Button button)
         {
             for (int x = 0; x < 4; x++)
@@ -342,8 +310,7 @@ namespace Battleship_Grid_Game
 
 
 
-        //players move
-
+        // Event handler that handles players move on computers grid
         private void GridButton_Click(object sender, EventArgs e)
         {
 
@@ -411,6 +378,8 @@ namespace Battleship_Grid_Game
         }
 
 
+
+        // Method to disable grid buttons after game a player or computer has won.
         private void DisableGridButtons()
         {
             for (int x = 0; x < 4; x++)
@@ -430,7 +399,7 @@ namespace Battleship_Grid_Game
             }
         }
 
-        // computer move
+        // Event handler to handle computers moves on players grid 
         private async void ComputerMove(object sender, EventArgs e)
         {
 
@@ -510,7 +479,7 @@ namespace Battleship_Grid_Game
 
 
 
-
+        // Method to keep track of sunken ships 
         private int CountSunkShips(int[,] board)
         {
 
@@ -552,10 +521,10 @@ namespace Battleship_Grid_Game
             PlaceComputerShips();
         }
 
+        // Sending
         private void game_panel_Paint(object sender, PaintEventArgs e)
         {
-            game_panel.SendToBack();
-
+            game_panel.SendToBack(); // Sending game panel behind the grid
         }
 
         private void EndGame_Click(object sender, EventArgs e)
@@ -564,6 +533,7 @@ namespace Battleship_Grid_Game
         }
 
 
+        // New game button
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             game start = new game();
@@ -588,6 +558,8 @@ namespace Battleship_Grid_Game
 
             }
         }
+
+        // Hint method to allow player to get an idea of where computer ship placement is.
 
         private void ShowComputerShipHint()
         {
