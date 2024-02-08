@@ -465,59 +465,58 @@ namespace Battleship_Grid_Game
 
         private void GridButton_Click(object sender, EventArgs e)
         {
-
             TimerLabel.Visible = false;
-            Console.WriteLine("GridButton_Click method called."); // adding a logging statement
+            Console.WriteLine("GridButton_Click method called.");
 
+            if (GameFinished)
+            {
+                MessageBox.Show("The game has already finished");
+                InstructionsLabel.Text = "Game Over";
 
-            if (!isPlayerTurn)
                 return;
+
+            }
 
             Button clickedButton = (Button)sender;
             int x = GetXCoordinate(clickedButton);
             int y = GetYCoordinate(clickedButton);
 
-            Console.WriteLine($"Clicked on computerBoard[{x}, {y}]"); // debuging output
-
+            Console.WriteLine($"Clicked on computerBoard[{x}, {y}]");
 
             if (x >= 0 && x < 8 && y >= 0 && y < 8)
             {
                 if (computerBoard[x, y] == 1)
                 {
+                    computerBoard[x, y] = -1;
                     clickedButton.BackColor = Color.Red;
                     MessageBox.Show("BOOM! You sunk a battleship");
                     UpdateShipCounter();
 
-                    if (CountSunkShips(computerBoard) == 5)
+                    if (CountSunkShips(computerBoard) == 11)
                     {
                         MessageBox.Show("You are too good! You sank all the Enemy's battleships. You win!");
                         InstructionsLabel.Text = "You are victorious";
                         GameFinished = true;
                         DisableGridButtons();
-                   
 
                         return;
                     }
-
-                    isPlayerTurn = false;
-                    ComputerMove(null, null);
-
+                    else
+                    {
+                        isPlayerTurn = false;
+                        ComputerMove(null, null);
+                    }
                 }
                 else
                 {
                     clickedButton.BackColor = Color.Gray;
                     MessageBox.Show("MISS! The Enemy's turn");
+                    UpdateShipCounter();
                     isPlayerTurn = false;
                     ComputerMove(null, null);
-
                 }
             }
-
         }
-
-
-
-
 
         private void DisableGridButtons()
         {
@@ -545,7 +544,7 @@ namespace Battleship_Grid_Game
             StopTimer();
             InstructionsLabel.Text = "Waiting for Enemy's move";
 
-            await Task.Delay(2000); // 2 seconds
+            await Task.Delay(0); // 2 seconds
 
             if (isPlayerTurn)
             {
@@ -554,7 +553,7 @@ namespace Battleship_Grid_Game
 
             Random random = new Random();
 
-            // Keep generating new random coordinates until a unique one is found
+            // To Keep generating new random coordinates until a unique one is found
             int x, y;
             do
             {
@@ -568,12 +567,21 @@ namespace Battleship_Grid_Game
 
             if (playerBoard[x, y] == 1)
             {
+                playerBoard[x, y] = -1;
                 playerGrid[x, y].BackColor = Color.Red;
                 MessageBox.Show("BOOM! The enemy sunk one of your battleships");
                 UpdateShipCounter();
                 isPlayerTurn = true;
 
-                if (CountSunkShips(playerBoard) == 5)
+                if (CountSunkShips(playerBoard) ==6)
+                {
+                    MessageBox.Show("The enemy has sunk half your fleet!!");
+                    InstructionsLabel.Text = "The enemt has sunk half your fleet!!";
+                    GameFinished = false;
+                    return;
+                }
+
+                if (CountSunkShips(playerBoard) == 11)
                 {
                     MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
                     InstructionsLabel.Text = "The enemy won";
@@ -595,6 +603,7 @@ namespace Battleship_Grid_Game
 
             currentRound++;
             UpdateRoundCounter();
+            CountSunkShips(playerBoard);
 
             ResetTimer();
             StartTimer();
@@ -607,7 +616,6 @@ namespace Battleship_Grid_Game
             InstructionsLabel.Text = "Attack the enemy";
         }
 
-
         private int CountSunkShips(int[,] board)
         {
 
@@ -617,13 +625,38 @@ namespace Battleship_Grid_Game
             {
                 for (int y = 0; y < board.GetLength(1); y++)
                 {
-                    if (board[x, y] == 1 && playerGrid[x, y].BackColor == Color.Red)
+                    if (board[x, y] == -1 && board == playerBoard && playerGrid[x, y].BackColor == Color.Red)
                     {
                         count++;
                     }
-                    else if (board[x, y] == 1 && computerGrid[x, y].BackColor == Color.Red)
+                    else if (board[x, y] == -1 && board == computerBoard && computerGrid[x, y].BackColor == Color.Red)
                     {
                         count++;
+                    }
+
+
+                }
+            }
+
+            return count;
+        }
+
+        /**
+        private int CountSunkShips(int[,] board)
+        {
+            int count = 0;
+
+            for (int x = 0; x < board.GetLength(0); x++)
+            {
+                for (int y = 0; y < board.GetLength(1); y++)
+                {
+                    if (board[x, y] == 1 && playerGrid[x, y].BackColor == Color.Red)
+                    {
+                        // Check if the entire ship is sunk
+                        if (IsShipSunk(x, y, board))
+                        {
+                            count++;
+                        }
                     }
                 }
             }
@@ -631,6 +664,64 @@ namespace Battleship_Grid_Game
             return count;
         }
 
+        private bool IsShipSunk(int x, int y, int[,] board)
+        {
+            int shipLength = GetShipLength(x, y, board);
+
+            // Check horizontally
+            if (x + shipLength <= board.GetLength(0))
+            {
+                for (int i = x; i < x + shipLength; i++)
+                {
+                    if (playerGrid[i, y].BackColor != Color.Red)
+                    {
+                        //Console.WriteLine("Half the ship is not sunk");
+                        return false; // Not the entire ship is sunk
+                    }
+                }
+                Console.WriteLine("Ship is sunk");
+                return true; // The entire ship is sunk
+            }
+
+            // Check vertically
+            if (y + shipLength <= board.GetLength(1))
+            {
+                for (int i = y; i < y + shipLength; i++)
+                {
+                    if (playerGrid[x, i].BackColor != Color.Red)
+                    {
+                        Console.WriteLine("Half the ship is not sunk");
+                        return false; // Not the entire ship is sunk
+                    }
+                }
+                Console.WriteLine("Ship is sunk");
+                return true; // The entire ship is sunk
+            }
+
+            return false;
+        }
+
+
+
+        private int GetShipLength(int x, int y, int[,] board)
+        {
+            // Check horizontally
+            int length = 1;
+            for (int i = x + 1; i < board.GetLength(0) && board[i, y] == 1; i++)
+            {
+                length++;
+            }
+
+            // Check vertically
+            for (int i = y + 1; i < board.GetLength(1) && board[x, i] == 1; i++)
+            {
+                length++;
+            }
+
+            return length;
+        }
+
+        **/
 
         private void game_Load(object sender, EventArgs e)
         {
