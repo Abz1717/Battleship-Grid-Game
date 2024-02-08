@@ -37,6 +37,9 @@ namespace Battleship_Grid_Game
         private Random random = new Random();
         private bool hintUsed = false;
 
+        private bool GameFinished = false;
+
+
 
 
         public game()
@@ -351,6 +354,17 @@ namespace Battleship_Grid_Game
             if (!isPlayerTurn)
                 return;
 
+            if (GameFinished)
+            {
+                MessageBox.Show("The game has already finished");
+                InstructionsLabel.Text = "Game Over";
+
+                return;
+
+            }
+           
+            
+
             Button clickedButton = (Button)sender;
             int x = GetXCoordinate(clickedButton);
             int y = GetYCoordinate(clickedButton);
@@ -362,7 +376,11 @@ namespace Battleship_Grid_Game
             {
                 if (computerBoard[x, y] == 1)
                 {
+<<<<<<< HEAD
                     
+=======
+                    computerBoard[x, y] = -1;
+>>>>>>> 445e4581ad3d813b3b56916172cc6664da0d3d30
                     clickedButton.BackColor = Color.Red;
                     MessageBox.Show("BOOM! You sunk a battleship");
                     UpdateShipCounter();
@@ -371,6 +389,12 @@ namespace Battleship_Grid_Game
                     {
                         MessageBox.Show("You are too good! You sank all the Enemy's battleships. You win!");
                         InstructionsLabel.Text = "You are victorious";
+<<<<<<< HEAD
+=======
+                        GameFinished = true;
+                        DisableGridButtons();
+
+>>>>>>> 445e4581ad3d813b3b56916172cc6664da0d3d30
                         return;
                     }
 
@@ -393,6 +417,25 @@ namespace Battleship_Grid_Game
         }
 
 
+        private void DisableGridButtons()
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    playerGrid[x, y].Enabled = false;
+                }
+            }
+
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    computerGrid[x, y].Enabled = false;
+                }
+            }
+        }
+
         // computer move
         private async void ComputerMove(object sender, EventArgs e)
         {
@@ -409,13 +452,25 @@ namespace Battleship_Grid_Game
                 return;
             }
 
+
+            if (GameFinished)
+            {
+               MessageBox.Show("The game has already finished");
+               return;
+
+            }
+
             Random random = new Random();
             int x = random.Next(4);
             int y = random.Next(4);
 
             if (playerBoard[x, y] == 1)
             {
+<<<<<<< HEAD
                 
+=======
+                playerBoard[x, y] = -1;
+>>>>>>> 445e4581ad3d813b3b56916172cc6664da0d3d30
                 playerGrid[x, y].BackColor = Color.Red;
                 MessageBox.Show("BOOM! The enemy sunk one of your battleships");
                 UpdateShipCounter();
@@ -427,7 +482,8 @@ namespace Battleship_Grid_Game
                     
                     MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
                     InstructionsLabel.Text = "The enemy won";
-
+                    GameFinished = true;
+                    DisableGridButtons();
 
                     currentRound++;
                     UpdateRoundCounter();
@@ -438,6 +494,7 @@ namespace Battleship_Grid_Game
             }
             else
             {
+
                 playerGrid[x, y].BackColor = Color.Yellow;
                 MessageBox.Show("Enemy MISSED! Your turn");
                 isPlayerTurn = true;
@@ -472,14 +529,16 @@ namespace Battleship_Grid_Game
             {
                 for (int y = 0; y < board.GetLength(1); y++)
                 {
-                    if (board[x, y] == 1 && playerGrid[x, y].BackColor == Color.Red)
+                    if (board[x, y] == -1 && board == playerBoard && playerGrid[x, y].BackColor == Color.Red)
                     {
                         count++;
                     }
-                    else if (board[x, y] == 1 && computerGrid[x, y].BackColor == Color.Red)
+                    else if (board[x, y] == -1 && board == computerBoard && computerGrid[x, y].BackColor == Color.Red)
                     {
                         count++;
                     }
+
+
                 }
             }
 

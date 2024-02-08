@@ -32,6 +32,7 @@ namespace Battleship_Grid_Game
 
         private bool isPlayerTurn = true;
         private int currentRound = 1;
+        private bool GameFinished = false;
 
         int timeLeft = 10;
 
@@ -239,6 +240,13 @@ namespace Battleship_Grid_Game
                 InstructionsLabel.Text = "The enemy won";
             }
 
+            if (GameFinished)
+            {
+                MessageBox.Show("The game has already finished");
+                return;
+
+            }
+
             if (!isPlayerTurn)
                 return;
 
@@ -256,6 +264,8 @@ namespace Battleship_Grid_Game
                 {
                     MessageBox.Show("You are too good! You sank all the Enemy's battleships. You win!");
                     InstructionsLabel.Text = "You are victorious";
+                    GameFinished = true;
+                    DisableGridButtons();
                     return;
                 }
 
@@ -296,14 +306,34 @@ namespace Battleship_Grid_Game
                 ComputerMove(null, null);
 
             }
-            
+
+            isPlayerTurn = false;
         }
 
-     
+
+        private void DisableGridButtons()
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    playerGrid[x, y].Enabled = false;
+                }
+            }
+
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    computerGrid[x, y].Enabled = false;
+                }
+            }
+
+        }
 
 
 
-        private async void ComputerMove(object sender, EventArgs e)
+            private async void ComputerMove(object sender, EventArgs e)
         {
 
            
@@ -316,6 +346,12 @@ namespace Battleship_Grid_Game
                 InstructionsLabel.Text = "You won";
             }
 
+            if (GameFinished)
+            {
+                MessageBox.Show("The game has already finished");
+                return;
+
+            }
 
             try
             {
@@ -350,8 +386,8 @@ namespace Battleship_Grid_Game
                     {
                         MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
                         InstructionsLabel.Text = "The enemy won";
-
-
+                        GameFinished = true;
+                        DisableGridButtons();
                         currentRound++;
                         UpdateRoundCounter();
                         return;
@@ -370,10 +406,13 @@ namespace Battleship_Grid_Game
                         y = random.Next(6);
                     } while (computerBoard[x, y] != 1); // Find a battleship to sink
 
+                    await Task.Delay(1000);
+
                     computerBoard[x, y] = -1;
                     computerGrid[x, y].BackColor = Color.Red;
                     MessageBox.Show("The destroyer sank one of your ships!");
                     UpdateShipCounter();
+                    isPlayerTurn = true;
                 }
                 else
                 {
@@ -400,9 +439,10 @@ namespace Battleship_Grid_Game
             {
                 MessageBox.Show($"An error occurred in ComputerMove: {ex.Message}");
             }
-        
+            isPlayerTurn = true;
 
-    }
+
+        }
 
         private int GetXCoordinate(Button button)
         {

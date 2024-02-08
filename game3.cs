@@ -28,6 +28,7 @@ namespace Battleship_Grid_Game
 
         private bool isPlayerTurn = true;
         private int currentRound = 1;
+        private bool GameFinished = false;
 
         int timeLeft = 5;
 
@@ -36,8 +37,8 @@ namespace Battleship_Grid_Game
         {
             InitializeComponent();
 
-            InitializeGrid(playerGrid, 102, 210);
-            InitializeGrid(computerGrid, 596, 210);
+            InitializeGrid(playerGrid, 91, 200);
+            InitializeGrid(computerGrid, 583, 200);
             StopTimer();
 
 
@@ -491,6 +492,9 @@ namespace Battleship_Grid_Game
                     {
                         MessageBox.Show("You are too good! You sank all the Enemy's battleships. You win!");
                         InstructionsLabel.Text = "You are victorious";
+                        GameFinished = true;
+                        DisableGridButtons();
+                   
 
                         return;
                     }
@@ -512,8 +516,31 @@ namespace Battleship_Grid_Game
         }
 
 
-        // computer move
-        private async void ComputerMove(object sender, EventArgs e)
+
+
+
+        private void DisableGridButtons()
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    playerGrid[x, y].Enabled = false;
+                }
+            }
+
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    computerGrid[x, y].Enabled = false;
+                }
+            }
+
+        }
+
+            // computer move
+            private async void ComputerMove(object sender, EventArgs e)
         {
             StopTimer();
             InstructionsLabel.Text = "Waiting for Enemy's move";
@@ -550,6 +577,9 @@ namespace Battleship_Grid_Game
                 {
                     MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
                     InstructionsLabel.Text = "The enemy won";
+                    GameFinished = true;
+                    DisableGridButtons();
+                
 
                     currentRound++;
                     UpdateRoundCounter();
