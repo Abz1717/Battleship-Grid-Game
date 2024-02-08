@@ -167,7 +167,7 @@
             this.roundCounter.Text = "0";
             // 
             // EndGame
-            //  
+            // 
             this.EndGame.Image = global::Battleship_Grid_Game.Properties.Resources.end_game2;
             this.EndGame.Location = new System.Drawing.Point(408, 458);
             this.EndGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);

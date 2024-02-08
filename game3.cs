@@ -43,6 +43,8 @@ namespace Battleship_Grid_Game
 
 
             UpdateRoundCounter();
+
+            PlaceComputerShips();
         }
 
         private void UpdateRoundCounter()
@@ -63,6 +65,7 @@ namespace Battleship_Grid_Game
 
         }
 
+        private List<(int x, int y)> computerMoves = new List<(int x, int y)>();
 
         private void StartTimer()
         {
@@ -150,22 +153,17 @@ namespace Battleship_Grid_Game
         //ship placement 
         private void ShipPlacement_Click(object sender, EventArgs e)
         {
-
-            Console.WriteLine("ShipPlacement_Click method called."); // adding a logging statement
-
-
+            Console.WriteLine("ShipPlacement_Click method called.");
 
             if (!isPlayerTurn || !shipPlacementPhase)
                 return;
 
-
-            if (shipsPlacedCount >= 5)
+            if (shipsPlacedCount >= 3)
             {
-                MessageBox.Show("You can only place 5 ships. Click the onto the enemy's grid to attack and start the game. ");
+                MessageBox.Show("You can only place 3 ships. Click onto the enemy's grid to attack and start the game.");
                 shipPlacementPhase = false;
                 return;
             }
-
 
             Button clickedButton = (Button)sender;
             int x = GetXCoordinate(clickedButton);
@@ -173,27 +171,95 @@ namespace Battleship_Grid_Game
 
             if (playerGrid[x, y] == clickedButton)
             {
-
                 if (playerBoard[x, y] == 0)
                 {
-                    playerBoard[x, y] = 1;
-                    clickedButton.BackColor = Color.Green;
-
-                    shipsPlacedCount++;
-
-                    if (shipsPlacedCount == 5)
+                    if (shipsPlacedCount < 2)  // Place two 3-tile ships
                     {
-                        MessageBox.Show("All Battleships Placed. Click the onto the enemy's grid to attack and start the game. ");
+                        // Prompt the user for ship orientation
+                        DialogResult result = MessageBox.Show("Do you want to place the ship horizontally?", "Ship Placement", MessageBoxButtons.YesNoCancel);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            // Check if the placement is valid horizontally
+                            if (IsValidShipPlacement(x, y, true, 3))
+                            {
+                                // Place the ship
+                                PlaceShip(x, y, true, 3);
+                                shipsPlacedCount++;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid ship placement. Ships must be placed horizontally in a continuous line and be 3 tiles long.");
+                            }
+                        }
+                        else if (result == DialogResult.No)
+                        {
+                            // Check if the placement is valid vertically
+                            if (IsValidShipPlacement(x, y, false, 3))
+                            {
+                                // Place the ship
+                                PlaceShip(x, y, false, 3);
+                                shipsPlacedCount++;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid ship placement. Ships must be placed vertically in a continuous line and be 3 tiles long.");
+                            }
+                        }
+                        else
+                        {
+                            // User canceled ship placement
+                            return;
+                        }
+                    }
+                    else if (shipsPlacedCount == 2)  // Place one 5-tile ship
+                    {
+                        DialogResult result = MessageBox.Show("Do you want to place the ship horizontally?", "Ship Placement", MessageBoxButtons.YesNoCancel);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            // Check if the placement is valid horizontally
+                            if (IsValidShipPlacement(x, y, true, 5))
+                            {
+                                // Place the ship
+                                PlaceShip(x, y, true, 5);
+                                shipsPlacedCount++;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid ship placement. Ships must be placed horizontally in a continuous line and be 5 tiles long.");
+                            }
+                        }
+                        else if (result == DialogResult.No)
+                        {
+                            // Check if the placement is valid vertically
+                            if (IsValidShipPlacement(x, y, false, 5))
+                            {
+                                // Place the ship
+                                PlaceShip(x, y, false, 5);
+                                shipsPlacedCount++;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid ship placement. Ships must be placed vertically in a continuous line and be 5 tiles long.");
+                            }
+                        }
+                        else
+                        {
+                            // User canceled ship placement
+                            return;
+                        }
+                    }
+
+                    if (shipsPlacedCount == 3)
+                    {
+                        MessageBox.Show("All Battleships Placed. Click onto the enemy's grid to attack and start the game.");
                         shipPlacementPhase = false;
-
                         UpdateEventHandlers(computerGrid, GridButton_Click);
-
                         InstructionsLabel.Text = "Attack the enemy";
                         currentRound++;
                         UpdateRoundCounter();
                         StartTimer();
-
-
                     }
                 }
                 else
@@ -203,27 +269,158 @@ namespace Battleship_Grid_Game
             }
         }
 
+        private bool IsValidShipPlacement(int x, int y, bool isHorizontal, int length)
+        {
+            return isHorizontal ? IsValidHorizontalShip(x, y, length) : IsValidVerticalShip(x, y, length);
+        }
 
+        private bool IsValidHorizontalShip(int x, int y, int length)
+        {
+            if (x + length > 8)
+            {
+                return false;
+            }
 
+            for (int i = 0; i < length; i++)
+            {
+                if (playerBoard[x + i, y] == 1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool IsValidVerticalShip(int x, int y, int length)
+        {
+            if (y + length > 8)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                if (playerBoard[x, y + i] == 1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void PlaceShip(int x, int y, bool isHorizontal, int length)
+        {
+            if (isHorizontal)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    playerBoard[x + i, y] = 1;
+                    playerGrid[x + i, y].BackColor = Color.Green;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    playerBoard[x, y + i] = 1;
+                    playerGrid[x, y + i].BackColor = Color.Green;
+                }
+            }
+        }
+
+        private bool IsValidComputerShipPlacement(int x, int y, bool isHorizontal, int length)
+        {
+            return isHorizontal ? IsValidHorizontalComputerShip(x, y, length) : IsValidVerticalComputerShip(x, y, length);
+        }
+
+        private bool IsValidHorizontalComputerShip(int x, int y, int length)
+        {
+            if (x + length > 8)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                if (computerBoard[x + i, y] == 1 || playerBoard[x + i, y] == 1)
+                {
+                    return false;  // To Check if the position is already occupied by a ship
+                }
+            }
+
+            return true;
+        }
+
+        private bool IsValidVerticalComputerShip(int x, int y, int length)
+        {
+            if (y + length > 8)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                if (computerBoard[x, y + i] == 1 || playerBoard[x, y + i] == 1)
+                {
+                    return false;  // To Check if the position is already occupied by a ship
+                }
+            }
+
+            return true;
+        }
 
         private void PlaceComputerShips()
         {
+            Console.WriteLine("PlaceComputerShips method called.");
+
             Random random = new Random();
 
+            // Place two ships of length 3
+            for (int i = 0; i < 2; i++)
+            {
+                int shipLength = 3;
+                PlaceComputerShipRandomly(random, shipLength);
+            }
 
+            // Place one ship of length 5
+            int shipLength5 = 5;
+            PlaceComputerShipRandomly(random, shipLength5);
+        }
 
-            while (computerShipsPlacedCount < 5)
+        private void PlaceComputerShipRandomly(Random random, int shipLength)
+        {
+            while (true)
             {
                 int x = random.Next(8);
                 int y = random.Next(8);
 
-                if (computerBoard[x, y] == 0)
+                bool isHorizontal = random.Next(2) == 0; // Randomly choose horizontal or vertical placement
+
+                if (IsValidComputerShipPlacement(x, y, isHorizontal, shipLength))
                 {
-                    computerBoard[x, y] = 1;
+                    PlaceComputerShip(x, y, isHorizontal, shipLength);
                     computerShipsPlacedCount++;
+                    break;
+                }
+            }
+        }
 
-                    computerGrid[x, y].BackColor = Color.Green;
-
+        private void PlaceComputerShip(int x, int y, bool isHorizontal, int length)
+        {
+            if (isHorizontal)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    computerBoard[x + i, y] = 1;
+                    computerGrid[x + i, y].BackColor = Color.Green;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    computerBoard[x, y + i] = 1;
+                    computerGrid[x, y + i].BackColor = Color.Green;
                 }
             }
         }
@@ -262,9 +459,6 @@ namespace Battleship_Grid_Game
 
             return -1;
         }
-
-
-
 
         //players move
 
@@ -321,12 +515,10 @@ namespace Battleship_Grid_Game
         // computer move
         private async void ComputerMove(object sender, EventArgs e)
         {
-
             StopTimer();
             InstructionsLabel.Text = "Waiting for Enemy's move";
 
-
-            await Task.Delay(3000); // 3 seconds
+            await Task.Delay(2000); // 2 seconds
 
             if (isPlayerTurn)
             {
@@ -334,8 +526,18 @@ namespace Battleship_Grid_Game
             }
 
             Random random = new Random();
-            int x = random.Next(8);
-            int y = random.Next(8);
+
+            // Keep generating new random coordinates until a unique one is found
+            int x, y;
+            do
+            {
+                x = random.Next(8);
+                y = random.Next(8);
+            } while (computerMoves.Contains((x, y)));
+
+            computerMoves.Add((x, y)); // Remember the chosen position
+
+            Console.WriteLine($"Computer chose coordinates: ({x}, {y})"); // Print coordinates to console (For Testing and Verfication)
 
             if (playerBoard[x, y] == 1)
             {
@@ -344,26 +546,21 @@ namespace Battleship_Grid_Game
                 UpdateShipCounter();
                 isPlayerTurn = true;
 
-
                 if (CountSunkShips(playerBoard) == 5)
                 {
                     MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
                     InstructionsLabel.Text = "The enemy won";
 
-
                     currentRound++;
                     UpdateRoundCounter();
                     return;
-
                 }
-
             }
             else
             {
                 playerGrid[x, y].BackColor = Color.Yellow;
                 MessageBox.Show("Enemy MISSED! Your turn");
                 isPlayerTurn = true;
-
             }
 
             currentRound++;
@@ -378,10 +575,7 @@ namespace Battleship_Grid_Game
             }
 
             InstructionsLabel.Text = "Attack the enemy";
-
         }
-
-
 
 
         private int CountSunkShips(int[,] board)
@@ -408,12 +602,6 @@ namespace Battleship_Grid_Game
         }
 
 
-
-
-
-
-
-
         private void game_Load(object sender, EventArgs e)
         {
             MessageBox.Show("Welcome to battleships. Place you ships onto your grid.");
@@ -423,9 +611,6 @@ namespace Battleship_Grid_Game
             this.ClientSize.Height / 2 - game3panel.Size.Height / 2);
             game3panel.Anchor = AnchorStyles.None;
 
-
-
-            PlaceComputerShips();
         }
 
         private void game_panel_Paint(object sender, PaintEventArgs e)

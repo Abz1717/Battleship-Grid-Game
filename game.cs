@@ -279,11 +279,7 @@ namespace Battleship_Grid_Game
                 }
             }
         }
-
-
-
-
-        private void PlaceComputerShips()
+ private void PlaceComputerShips()
         {
             Random random = new Random();
 
@@ -366,6 +362,7 @@ namespace Battleship_Grid_Game
             {
                 if (computerBoard[x, y] == 1)
                 {
+                    
                     clickedButton.BackColor = Color.Red;
                     MessageBox.Show("BOOM! You sunk a battleship");
                     UpdateShipCounter();
@@ -374,12 +371,12 @@ namespace Battleship_Grid_Game
                     {
                         MessageBox.Show("You are too good! You sank all the Enemy's battleships. You win!");
                         InstructionsLabel.Text = "You are victorious";
-
                         return;
                     }
 
                     isPlayerTurn = false;
                     ComputerMove(null, null);
+                    
 
                 }
                 else
@@ -388,6 +385,7 @@ namespace Battleship_Grid_Game
                     MessageBox.Show("MISS! The Enemy's turn");
                     isPlayerTurn = false;
                     ComputerMove(null, null);
+                    
 
                 }
             }
@@ -407,6 +405,7 @@ namespace Battleship_Grid_Game
 
             if (isPlayerTurn)
             {
+                
                 return;
             }
 
@@ -416,6 +415,7 @@ namespace Battleship_Grid_Game
 
             if (playerBoard[x, y] == 1)
             {
+                
                 playerGrid[x, y].BackColor = Color.Red;
                 MessageBox.Show("BOOM! The enemy sunk one of your battleships");
                 UpdateShipCounter();
@@ -424,6 +424,7 @@ namespace Battleship_Grid_Game
 
                 if (CountSunkShips(playerBoard) == 3)
                 {
+                    
                     MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
                     InstructionsLabel.Text = "The enemy won";
 
@@ -445,6 +446,7 @@ namespace Battleship_Grid_Game
 
             currentRound++;
             UpdateRoundCounter();
+            
 
             ResetTimer();
             StartTimer();
@@ -485,12 +487,7 @@ namespace Battleship_Grid_Game
         }
 
 
-
-
-
-
-
-
+       
         private void game_Load(object sender, EventArgs e)
         {
             MessageBox.Show("Welcome to battleships. Place you ships onto your grid.");
@@ -544,6 +541,7 @@ namespace Battleship_Grid_Game
 
         private void ShowComputerShipHint()
         {
+            
             int x, y;
 
             do
