@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(options_page));
             this.option_menu = new System.Windows.Forms.Panel();
             this.Sound = new System.Windows.Forms.Panel();
             this.sound_trackbar = new System.Windows.Forms.TrackBar();
@@ -38,6 +39,7 @@
             // 
             // option_menu
             // 
+            this.option_menu.BackColor = System.Drawing.Color.Navy;
             this.option_menu.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.optionsMenu;
             this.option_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.option_menu.Controls.Add(this.Sound);
@@ -51,6 +53,7 @@
             // 
             // Sound
             // 
+            this.Sound.AutoSize = true;
             this.Sound.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Sound;
             this.Sound.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Sound.Location = new System.Drawing.Point(125, 150);
@@ -82,14 +85,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Battleship_Game_Background;
             this.ClientSize = new System.Drawing.Size(1374, 1029);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.option_menu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "options_page";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "options_page";
+            this.Load += new System.EventHandler(this.options_page_Load);
             this.option_menu.ResumeLayout(false);
             this.option_menu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sound_trackbar)).EndInit();

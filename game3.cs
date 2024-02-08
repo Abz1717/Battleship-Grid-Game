@@ -706,6 +706,12 @@ namespace Battleship_Grid_Game
             start.ShowDialog();
             this.Close();
         }
+
+        private void EndGame_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }
 

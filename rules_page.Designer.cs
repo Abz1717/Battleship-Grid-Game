@@ -56,6 +56,7 @@
             // 
             // panel2
             // 
+            this.panel2.AutoSize = true;
             this.panel2.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Rules_and_information;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Location = new System.Drawing.Point(67, 22);
@@ -83,6 +84,7 @@
             this.Load += new System.EventHandler(this.rules_page_Load);
             this.logo.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

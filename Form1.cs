@@ -10,10 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Battleship_Grid_Game
 {
     public partial class Form1 : Form
     {
+
+        private System.Media.SoundPlayer backgroundPlayer;
 
         public Form1()
         {
@@ -27,6 +30,33 @@ namespace Battleship_Grid_Game
 
 
         }
+
+
+        private void PlayBackgroundMusic(string soundFileName)
+        {
+            string executablePath = AppDomain.CurrentDomain.BaseDirectory;
+            string soundFilePath = Path.Combine(executablePath, "Resources", soundFileName);
+
+            try
+            {
+                backgroundPlayer = new System.Media.SoundPlayer(soundFilePath);
+                backgroundPlayer.PlayLooping();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error playing background music: " + ex.Message);
+            }
+        }
+
+        private void StopBackgroundMusic()
+        {
+            if (backgroundPlayer != null)
+            {
+                backgroundPlayer.Stop();
+                backgroundPlayer.Dispose();
+            }
+        }
+
 
         public static WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
@@ -145,8 +175,15 @@ namespace Battleship_Grid_Game
         {
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
-                                      (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2); 
+                                      (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
 
+            PlaySound("the_mole_hans_zimmer.wav", isBackgroundMusic: true);
+            PlayBackgroundMusic("the_mole_hans_zimmer.wav");
+
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
 
         }
     }
