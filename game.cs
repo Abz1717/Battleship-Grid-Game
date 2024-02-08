@@ -376,11 +376,8 @@ namespace Battleship_Grid_Game
             {
                 if (computerBoard[x, y] == 1)
                 {
-<<<<<<< HEAD
                     
-=======
                     computerBoard[x, y] = -1;
->>>>>>> 445e4581ad3d813b3b56916172cc6664da0d3d30
                     clickedButton.BackColor = Color.Red;
                     MessageBox.Show("BOOM! You sunk a battleship");
                     UpdateShipCounter();
@@ -389,12 +386,9 @@ namespace Battleship_Grid_Game
                     {
                         MessageBox.Show("You are too good! You sank all the Enemy's battleships. You win!");
                         InstructionsLabel.Text = "You are victorious";
-<<<<<<< HEAD
-=======
                         GameFinished = true;
                         DisableGridButtons();
 
->>>>>>> 445e4581ad3d813b3b56916172cc6664da0d3d30
                         return;
                     }
 
@@ -466,11 +460,8 @@ namespace Battleship_Grid_Game
 
             if (playerBoard[x, y] == 1)
             {
-<<<<<<< HEAD
                 
-=======
                 playerBoard[x, y] = -1;
->>>>>>> 445e4581ad3d813b3b56916172cc6664da0d3d30
                 playerGrid[x, y].BackColor = Color.Red;
                 MessageBox.Show("BOOM! The enemy sunk one of your battleships");
                 UpdateShipCounter();
