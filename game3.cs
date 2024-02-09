@@ -479,7 +479,7 @@ namespace Battleship_Grid_Game
                 for (int i = 0; i < length; i++)
                 {
                     computerBoard[x + i, y] = 1;
-                    computerGrid[x + i, y].BackColor = Color.Green;
+                //    computerGrid[x + i, y].BackColor = Color.Green; // fore debugging
                 }
             }
             else
@@ -487,7 +487,7 @@ namespace Battleship_Grid_Game
                 for (int i = 0; i < length; i++)
                 {
                     computerBoard[x, y + i] = 1;
-                    computerGrid[x, y + i].BackColor = Color.Green;
+                 //   computerGrid[x, y + i].BackColor = Color.Green; // for debugging
                 }
             }
         }

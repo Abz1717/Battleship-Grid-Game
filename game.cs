@@ -307,7 +307,7 @@ namespace Battleship_Grid_Game
                         computerBoard[x, y] = 1;
                         computerShipsPlacedCount++;
 
-                        computerGrid[x, y].BackColor = Color.Green;
+                        // computerGrid[x, y].BackColor = Color.Green; // for debugging 
 
                     }
                 }
