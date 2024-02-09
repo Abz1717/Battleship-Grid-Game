@@ -32,7 +32,10 @@
             this.logo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.MenuBtn = new System.Windows.Forms.PictureBox();
             this.logo.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // logo
@@ -57,12 +60,27 @@
             // panel2
             // 
             this.panel2.AutoSize = true;
-            this.panel2.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Rules_and_information;
+            this.panel2.BackgroundImage = global::Battleship_Grid_Game.Properties.Resources.Rules_and_information__2_;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.MenuBtn);
             this.panel2.Location = new System.Drawing.Point(67, 22);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1837, 1020);
             this.panel2.TabIndex = 3;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint_1);
+            // 
+            // MenuBtn
+            // 
+            this.MenuBtn.BackColor = System.Drawing.Color.Transparent;
+            this.MenuBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MenuBtn.Image = global::Battleship_Grid_Game.Properties.Resources.Back_to_MainMenu;
+            this.MenuBtn.Location = new System.Drawing.Point(1559, 898);
+            this.MenuBtn.Name = "MenuBtn";
+            this.MenuBtn.Size = new System.Drawing.Size(172, 72);
+            this.MenuBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MenuBtn.TabIndex = 3;
+            this.MenuBtn.TabStop = false;
+            this.MenuBtn.Click += new System.EventHandler(this.MenuBtn_Click);
             // 
             // rules_page
             // 
@@ -83,6 +101,8 @@
             this.Text = "rules_page";
             this.Load += new System.EventHandler(this.rules_page_Load);
             this.logo.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MenuBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +112,6 @@
         private System.Windows.Forms.Panel logo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox MenuBtn;
     }
 }

@@ -34,7 +34,7 @@ namespace Battleship_Grid_Game
 
         }
 
-        public static WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+         public static WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
         private void PlaySound(string soundFileName, bool isBackgroundMusic)
         {
@@ -46,8 +46,8 @@ namespace Battleship_Grid_Game
 
                 if (isBackgroundMusic)
                 {
-                  
-                    // Unable to work with a relative path 
+
+                    // Background music is unable to work with a relative path enough though soundpath location was correct. 
                     wplayer.URL = soundFilePath;
                     wplayer.controls.play();
                     Console.WriteLine("Sound File Path: " + soundFilePath);
@@ -55,7 +55,7 @@ namespace Battleship_Grid_Game
                 }
                 else
                 {
-                   
+
                     using (System.Media.SoundPlayer sound = new System.Media.SoundPlayer(soundFilePath))
                     {
                         sound.Play();
@@ -63,14 +63,14 @@ namespace Battleship_Grid_Game
 
                     }
 
-                }
 
+                }
             }
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine("Error: File not found - " + ex.Message);
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error: Playing sound - " + ex.Message);
 

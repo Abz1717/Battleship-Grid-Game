@@ -150,6 +150,9 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Content Include="icon22.ico" />
+    <None Include="Resources\Back to MainMenu.png" />
+    <None Include="Resources\Rules and information %282%29.png" />
+    <None Include="Resources\Rules and information %281%29.png" />
     <None Include="Resources\Rules and information.png" />
     <None Include="Resources\_Game Hard level.png" />
     <None Include="Resources\Game Medium level.png" />
