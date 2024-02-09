@@ -314,8 +314,7 @@ namespace Battleship_Grid_Game
         // Methods to get X and Y coordinates 
         private int GetXCoordinate(Button button)
         {
-            try
-            {
+            
                 for (int x = 0; x < 4; x++)
                 {
                     for (int y = 0; y < 4; y++)
@@ -330,19 +329,15 @@ namespace Battleship_Grid_Game
 
                 return -1;
 
-            }
-            catch(Exception ex)
-            {
-                HandleError(ex);
-                return -1;
-            }
+            
+            
         }
 
 
         private int GetYCoordinate(Button button)
         {
-            try
-            {
+            
+            
                 for (int x = 0; x < 4; x++)
                 {
                     for (int y = 0; y < 4; y++)
@@ -356,12 +351,9 @@ namespace Battleship_Grid_Game
                 Console.WriteLine("GetYCoordinate: Button not found");
 
                 return -1;
-            }
-            catch (Exception ex)
-            {
-                HandleError(ex);
-                return -1;
-            }
+            
+            
+             
 }
 
 

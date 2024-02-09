@@ -23,40 +23,10 @@ namespace Battleship_Grid_Game
            
             InitializeComponent();
             
-
-
             PlaySound("the_mole_hans_zimmer.wav", isBackgroundMusic: true);
 
 
-
         }
-
-
-        private void PlayBackgroundMusic(string soundFileName)
-        {
-            string executablePath = AppDomain.CurrentDomain.BaseDirectory;
-            string soundFilePath = Path.Combine(executablePath, "Resources", soundFileName);
-
-            try
-            {
-                backgroundPlayer = new System.Media.SoundPlayer(soundFilePath);
-                backgroundPlayer.PlayLooping();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error playing background music: " + ex.Message);
-            }
-        }
-
-        private void StopBackgroundMusic()
-        {
-            if (backgroundPlayer != null)
-            {
-                backgroundPlayer.Stop();
-                backgroundPlayer.Dispose();
-            }
-        }
-
 
         public static WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
@@ -65,14 +35,13 @@ namespace Battleship_Grid_Game
             string executablePath = AppDomain.CurrentDomain.BaseDirectory;
             string soundFilePath = Path.Combine(executablePath, "Resources", soundFileName);
 
-
-
             try
             {
 
                 if (isBackgroundMusic)
                 {
-                    
+                  
+                    // Unable to work with a relative path 
                     wplayer.URL = soundFilePath;
                     wplayer.controls.play();
                     Console.WriteLine("Sound File Path: " + soundFilePath);
@@ -91,22 +60,22 @@ namespace Battleship_Grid_Game
                 }
 
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
-                Console.WriteLine("Error playing sound " + ex.Message + ex.ToString());
+                Console.WriteLine("Error: File not found - " + ex.Message);
+            }
+            catch ( Exception ex)
+            {
+                Console.WriteLine("Error: Playing sound - " + ex.Message);
+
             }
         }
-
-        
-
-
 
 
         private void btn_start_MouseHover(object sender, EventArgs e)
         {
             btn_start.Image = Properties.Resources.startbtn_hover;
         }
-
         private void btn_options_MouseHover(object sender, EventArgs e)
         {
             btn_options.Image = Properties.Resources.optionsbtn_hover;
@@ -177,8 +146,6 @@ namespace Battleship_Grid_Game
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                                       (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
 
-            PlaySound("the_mole_hans_zimmer.wav", isBackgroundMusic: true);
-            PlayBackgroundMusic("the_mole_hans_zimmer.wav");
 
         }
 
