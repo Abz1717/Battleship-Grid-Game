@@ -163,6 +163,16 @@ namespace Battleship_Grid_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Back_to_MainMenu {
+            get {
+                object obj = ResourceManager.GetObject("Back to MainMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Battlemenu {
             get {
                 object obj = ResourceManager.GetObject("Battlemenu", resourceCulture);
@@ -192,6 +202,16 @@ namespace Battleship_Grid_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide_ {
+            get {
+                object obj = ResourceManager.GetObject("Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___1_ {
             get {
                 object obj = ResourceManager.GetObject("Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (1)", resourceCulture);
@@ -215,9 +235,6 @@ namespace Battleship_Grid_Game.Properties {
         internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide___4_ {
             get {
                 object obj = ResourceManager.GetObject("Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide  (4)", resourceCulture);
-        internal static System.Drawing.Bitmap Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Lessons_First_slide_ {
-            get {
-                object obj = ResourceManager.GetObject("Copy of Copy of Copy of Copy of Copy of Copy of Lessons First slide ", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -385,7 +402,6 @@ namespace Battleship_Grid_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
         internal static System.Drawing.Bitmap menu {
             get {
                 object obj = ResourceManager.GetObject("menu", resourceCulture);
@@ -609,6 +625,26 @@ namespace Battleship_Grid_Game.Properties {
         internal static System.Drawing.Bitmap Rules_and_information {
             get {
                 object obj = ResourceManager.GetObject("Rules and information", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rules_and_information__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Rules and information (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rules_and_information__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Rules and information (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,4 +1,10 @@
-﻿using System;
+﻿
+// Group 14 Abz Mohamed, Tanush, Hannah
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,39 +16,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Battleship_Grid_Game
 {
     public partial class Form1 : Form
     {
+
+        private System.Media.SoundPlayer backgroundPlayer;
 
         public Form1()
         {
            
             InitializeComponent();
             
-
-
             PlaySound("the_mole_hans_zimmer.wav", isBackgroundMusic: true);
-
 
 
         }
 
-        public static WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+         public static WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
         private void PlaySound(string soundFileName, bool isBackgroundMusic)
         {
             string executablePath = AppDomain.CurrentDomain.BaseDirectory;
             string soundFilePath = Path.Combine(executablePath, "Resources", soundFileName);
 
-
-
             try
             {
 
                 if (isBackgroundMusic)
                 {
-                    
+
+                    // Background music is unable to work with a relative path enough though soundpath location was correct. 
                     wplayer.URL = soundFilePath;
                     wplayer.controls.play();
                     Console.WriteLine("Sound File Path: " + soundFilePath);
@@ -50,7 +55,7 @@ namespace Battleship_Grid_Game
                 }
                 else
                 {
-                   
+
                     using (System.Media.SoundPlayer sound = new System.Media.SoundPlayer(soundFilePath))
                     {
                         sound.Play();
@@ -58,25 +63,25 @@ namespace Battleship_Grid_Game
 
                     }
 
-                }
 
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("Error: File not found - " + ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error playing sound " + ex.Message + ex.ToString());
+                Console.WriteLine("Error: Playing sound - " + ex.Message);
+
             }
         }
-
-        
-
-
 
 
         private void btn_start_MouseHover(object sender, EventArgs e)
         {
             btn_start.Image = Properties.Resources.startbtn_hover;
         }
-
         private void btn_options_MouseHover(object sender, EventArgs e)
         {
             btn_options.Image = Properties.Resources.optionsbtn_hover;
@@ -145,8 +150,13 @@ namespace Battleship_Grid_Game
         {
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
-                                      (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2); 
+                                      (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
 
+
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

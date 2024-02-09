@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(game2));
             this.game2panel = new System.Windows.Forms.Panel();
             this.InstructionsLabel = new System.Windows.Forms.Label();
             this.TimerLabel = new System.Windows.Forms.Label();
@@ -87,16 +88,17 @@
             this.TimerLabel.Name = "TimerLabel";
             this.TimerLabel.Size = new System.Drawing.Size(219, 62);
             this.TimerLabel.TabIndex = 16;
-            this.TimerLabel.Text = "00 seconds \r\nto make a move";
+            this.TimerLabel.Text = "10 seconds \r\nto make a move";
             this.TimerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // computerShipsRemaining
             // 
             this.computerShipsRemaining.AutoSize = true;
             this.computerShipsRemaining.BackColor = System.Drawing.Color.Transparent;
-            this.computerShipsRemaining.Location = new System.Drawing.Point(1623, 254);
+            this.computerShipsRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.computerShipsRemaining.Location = new System.Drawing.Point(1602, 229);
             this.computerShipsRemaining.Name = "computerShipsRemaining";
-            this.computerShipsRemaining.Size = new System.Drawing.Size(24, 25);
+            this.computerShipsRemaining.Size = new System.Drawing.Size(69, 73);
             this.computerShipsRemaining.TabIndex = 15;
             this.computerShipsRemaining.Text = "4";
             // 
@@ -104,9 +106,10 @@
             // 
             this.playerShipsRemaining.AutoSize = true;
             this.playerShipsRemaining.BackColor = System.Drawing.Color.Transparent;
-            this.playerShipsRemaining.Location = new System.Drawing.Point(638, 245);
+            this.playerShipsRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerShipsRemaining.Location = new System.Drawing.Point(616, 219);
             this.playerShipsRemaining.Name = "playerShipsRemaining";
-            this.playerShipsRemaining.Size = new System.Drawing.Size(24, 25);
+            this.playerShipsRemaining.Size = new System.Drawing.Size(69, 73);
             this.playerShipsRemaining.TabIndex = 14;
             this.playerShipsRemaining.Text = "4";
             // 
@@ -115,9 +118,10 @@
             this.roundCounter.AllowDrop = true;
             this.roundCounter.AutoSize = true;
             this.roundCounter.BackColor = System.Drawing.Color.Transparent;
-            this.roundCounter.Location = new System.Drawing.Point(903, 565);
+            this.roundCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundCounter.Location = new System.Drawing.Point(882, 549);
             this.roundCounter.Name = "roundCounter";
-            this.roundCounter.Size = new System.Drawing.Size(24, 25);
+            this.roundCounter.Size = new System.Drawing.Size(69, 73);
             this.roundCounter.TabIndex = 13;
             this.roundCounter.Text = "0";
             // 
@@ -170,6 +174,7 @@
             this.ClientSize = new System.Drawing.Size(1951, 1055);
             this.Controls.Add(this.game2panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "game2";
