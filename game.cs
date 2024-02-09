@@ -1,4 +1,13 @@
-﻿using System;
+﻿
+
+// Group 14 Abz Mohamed, Tanush, Hannah
+ 
+// Easy level
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -123,7 +132,7 @@ namespace Battleship_Grid_Game
         {
 
             timeLeft = 15;
-            TimerLabel.Text = timeLeft + " seconds";
+            TimerLabel.Text = timeLeft + " seconds to make a move";
 
         }
         private void StopTimer()

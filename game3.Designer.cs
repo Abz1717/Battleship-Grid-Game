@@ -87,7 +87,7 @@
             this.TimerLabel.Name = "TimerLabel";
             this.TimerLabel.Size = new System.Drawing.Size(219, 62);
             this.TimerLabel.TabIndex = 19;
-            this.TimerLabel.Text = "00 seconds \r\nto make a move";
+            this.TimerLabel.Text = "5 seconds \r\nto make a move";
             this.TimerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // computerShipsRemaining

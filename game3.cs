@@ -1,4 +1,11 @@
-﻿using System;
+﻿
+// Group 14 Abz Mohamed, Tanush, Hannah
+
+// Hard level
+
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -98,7 +105,7 @@ namespace Battleship_Grid_Game
         {
 
             timeLeft = 5;
-            TimerLabel.Text = timeLeft + " seconds";
+            TimerLabel.Text = timeLeft + " seconds to make a move";
 
         }
 
@@ -624,7 +631,6 @@ namespace Battleship_Grid_Game
 
             if (isPlayerTurn || GameFinished)
             {
-                StartTimer(); // Re-enable the timer
                 return;
             }
 
@@ -746,6 +752,11 @@ namespace Battleship_Grid_Game
                 currentRound++;
                 UpdateRoundCounter();
                 CountSunkShips(playerBoard);
+            }
+
+            if (!TimerLabel.Visible)
+            {
+                TimerLabel.Visible = true;
             }
 
             ResetTimer(); // Reset the timer after the computer's move
