@@ -72,11 +72,11 @@ namespace Battleship_Grid_Game
          */
         private void UpdateShipCounter()
         {
-            int playerShipsRemainingCount = 5 - CountSunkShips(playerBoard);
+            int playerShipsRemainingCount = 11 - CountSunkShips(playerBoard);
             playerShipsRemaining.Text = "" + playerShipsRemainingCount;
             playerShipsRemaining.Refresh();
 
-            int computerShipsRemainingCount = 5 - CountSunkShips(computerBoard);
+            int computerShipsRemainingCount = 11 - CountSunkShips(computerBoard);
             computerShipsRemaining.Text = "" + computerShipsRemainingCount;
             computerShipsRemaining.Refresh();
 
@@ -153,7 +153,7 @@ namespace Battleship_Grid_Game
                 }
             }
 
-            InstructionsLabel.Text = "Place your \n5 ships";
+            InstructionsLabel.Text = "Place your \n 3 fleets";
 
         }
 
@@ -188,7 +188,7 @@ namespace Battleship_Grid_Game
 
             if (shipsPlacedCount >= 3)
             {
-                MessageBox.Show("You can only place 3 ships. Click onto the enemy's grid to attack and start the game.");
+                MessageBox.Show("You can only place 3 fleets. Click onto the enemy's grid to attack and start the game.");
                 shipPlacementPhase = false;
                 return;
             }
@@ -281,7 +281,7 @@ namespace Battleship_Grid_Game
 
                     if (shipsPlacedCount == 3)
                     {
-                        MessageBox.Show("All Battleships Placed. Click onto the enemy's grid to attack and start the game.");
+                        MessageBox.Show("All 3 Fleets Placed. Click onto the enemy's grid to attack and start the game.");
                         shipPlacementPhase = false;
                         UpdateEventHandlers(computerGrid, GridButton_Click);
                         InstructionsLabel.Text = "Attack the enemy";
@@ -292,7 +292,7 @@ namespace Battleship_Grid_Game
                 }
                 else
                 {
-                    MessageBox.Show("You can't place your Battleship here. Find an empty cell!");
+                    MessageBox.Show("You can't place your fleet here. Find empty cells!");
                 }
             }
         }

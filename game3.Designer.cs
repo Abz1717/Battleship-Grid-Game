@@ -94,30 +94,33 @@
             // 
             this.computerShipsRemaining.AutoSize = true;
             this.computerShipsRemaining.BackColor = System.Drawing.Color.Transparent;
-            this.computerShipsRemaining.Location = new System.Drawing.Point(1620, 253);
+            this.computerShipsRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.computerShipsRemaining.Location = new System.Drawing.Point(1596, 240);
             this.computerShipsRemaining.Name = "computerShipsRemaining";
-            this.computerShipsRemaining.Size = new System.Drawing.Size(24, 25);
+            this.computerShipsRemaining.Size = new System.Drawing.Size(80, 55);
             this.computerShipsRemaining.TabIndex = 18;
-            this.computerShipsRemaining.Text = "5";
+            this.computerShipsRemaining.Text = "11";
             // 
             // playerShipsRemaining
             // 
             this.playerShipsRemaining.AutoSize = true;
             this.playerShipsRemaining.BackColor = System.Drawing.Color.Transparent;
-            this.playerShipsRemaining.Location = new System.Drawing.Point(635, 244);
+            this.playerShipsRemaining.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerShipsRemaining.Location = new System.Drawing.Point(607, 231);
             this.playerShipsRemaining.Name = "playerShipsRemaining";
-            this.playerShipsRemaining.Size = new System.Drawing.Size(24, 25);
+            this.playerShipsRemaining.Size = new System.Drawing.Size(80, 55);
             this.playerShipsRemaining.TabIndex = 17;
-            this.playerShipsRemaining.Text = "5";
+            this.playerShipsRemaining.Text = "11";
             // 
             // roundCounter
             // 
             this.roundCounter.AllowDrop = true;
             this.roundCounter.AutoSize = true;
             this.roundCounter.BackColor = System.Drawing.Color.Transparent;
-            this.roundCounter.Location = new System.Drawing.Point(906, 567);
+            this.roundCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundCounter.Location = new System.Drawing.Point(883, 545);
             this.roundCounter.Name = "roundCounter";
-            this.roundCounter.Size = new System.Drawing.Size(24, 25);
+            this.roundCounter.Size = new System.Drawing.Size(69, 73);
             this.roundCounter.TabIndex = 16;
             this.roundCounter.Text = "0";
             // 
