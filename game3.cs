@@ -20,7 +20,15 @@ namespace Battleship_Grid_Game
         int[,] playerBoard = new int[8, 8];
         int[,] computerBoard = new int[8, 8];
 
+        private (int x, int y)? lastHitPosition = null;
+        private (int dx, int dy)? hitDirection = null;
 
+        /*
+         * This is a flag to check if the ship is sunk, if the ship is sunk the computer will use the stored move options to make a move. 
+         * It is also a List to store the sunk ship move options so that the computer can access them, important as player plays inbetween the computer's moves
+         */
+        private bool isShipSunk = false;
+        private List<(int, int)> sunkShipMoveOptions = new List<(int, int)>();
 
         bool shipPlacementPhase = true;
         int shipsPlacedCount = 0;
@@ -32,7 +40,9 @@ namespace Battleship_Grid_Game
 
         int timeLeft = 5;
 
-
+        /*
+         * This is the constructor for the game, it initializes the grid for the player and the computer and places the computer's ships on the grid
+         */
         public game3()
         {
             InitializeComponent();
@@ -48,12 +58,18 @@ namespace Battleship_Grid_Game
             PlaceComputerShips();
         }
 
+        /*
+         * This method updates the round counter for the game
+         */
         private void UpdateRoundCounter()
         {
             roundCounter.Text = "" + currentRound;
             roundCounter.Refresh();
         }
 
+        /*
+         * This method updates the ship counter for the player and the computer
+         */
         private void UpdateShipCounter()
         {
             int playerShipsRemainingCount = 5 - CountSunkShips(playerBoard);
@@ -66,13 +82,18 @@ namespace Battleship_Grid_Game
 
         }
 
+        /*
+         * This List is used to store the computer's moves, so that the computer doesn't make the same move twice. Improves the computer's gameplay and increaes the difficulty of the game
+         */
         private List<(int x, int y)> computerMoves = new List<(int x, int y)>();
 
+        //start the timer
         private void StartTimer()
         {
             GridButtonTimer.Start();
         }
 
+        //reset the timer
         private void ResetTimer()
         {
 
@@ -80,13 +101,17 @@ namespace Battleship_Grid_Game
             TimerLabel.Text = timeLeft + " seconds";
 
         }
+
+        //stop the timer
         private void StopTimer()
         {
             GridButtonTimer.Stop();
         }
 
 
-
+        /*
+         * This method initializes the grid for the game and sets the button size, colour, event handlers 
+         */
         private void InitializeGrid(Button[,] grid, int startX, int startY)
         {
             int buttonWidth = 40;
@@ -134,7 +159,9 @@ namespace Battleship_Grid_Game
 
 
 
-
+        /*
+         * This method updates the event handlers for the grid buttons
+         */
         private void UpdateEventHandlers(Button[,] grid, EventHandler newHandler)
         {
             for (int x = 0; x < 8; x++)
@@ -154,7 +181,7 @@ namespace Battleship_Grid_Game
         //ship placement 
         private void ShipPlacement_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("ShipPlacement_Click method called.");
+            Console.WriteLine("ShipPlacement_Click method called."); //debugging
 
             if (!isPlayerTurn || !shipPlacementPhase)
                 return;
@@ -176,7 +203,7 @@ namespace Battleship_Grid_Game
                 {
                     if (shipsPlacedCount < 2)  // Place two 3-tile ships
                     {
-                        // Prompt the user for ship orientation
+                        // Prompt the user for ship orientation (horizontal or vertical), this approach is good and simple and is functional
                         DialogResult result = MessageBox.Show("Do you want to place the ship horizontally?", "Ship Placement", MessageBoxButtons.YesNoCancel);
 
                         if (result == DialogResult.Yes)
@@ -247,7 +274,7 @@ namespace Battleship_Grid_Game
                         }
                         else
                         {
-                            // User canceled ship placement
+                            // User canceled ship placement will wait for them to click on another tile to place the ship
                             return;
                         }
                     }
@@ -270,11 +297,17 @@ namespace Battleship_Grid_Game
             }
         }
 
+        /*
+         * This method combines the horizontal and vertical validation of the player's ship placement and returns true if the ship placement is valid
+         */
         private bool IsValidShipPlacement(int x, int y, bool isHorizontal, int length)
         {
             return isHorizontal ? IsValidHorizontalShip(x, y, length) : IsValidVerticalShip(x, y, length);
         }
 
+        /*
+         * Mehtod to check if the ship placement is valid horizontally for the player's ships
+         */
         private bool IsValidHorizontalShip(int x, int y, int length)
         {
             if (x + length > 8)
@@ -292,6 +325,9 @@ namespace Battleship_Grid_Game
             return true;
         }
 
+        /*
+         * Mehtod to check if the ship placement is valid vertically for the player's ships
+         */
         private bool IsValidVerticalShip(int x, int y, int length)
         {
             if (y + length > 8)
@@ -309,6 +345,9 @@ namespace Battleship_Grid_Game
             return true;
         }
 
+        /*
+         * method to place the player's ships on the grid
+         */
         private void PlaceShip(int x, int y, bool isHorizontal, int length)
         {
             if (isHorizontal)
@@ -329,11 +368,18 @@ namespace Battleship_Grid_Game
             }
         }
 
+        /*
+         * This method combined the veritcal and horizontal validation of the computer's ship placement and returns true if the ship placement is valid 
+         * True will allow the PlaceComputerShip method to place the ship on the grid
+         */
         private bool IsValidComputerShipPlacement(int x, int y, bool isHorizontal, int length)
         {
             return isHorizontal ? IsValidHorizontalComputerShip(x, y, length) : IsValidVerticalComputerShip(x, y, length);
         }
 
+        /*
+        * Random placement of the computer's ships requies validation of the position of the ship since there are multiple possible positions for the ship which could be invalid
+        */
         private bool IsValidHorizontalComputerShip(int x, int y, int length)
         {
             if (x + length > 8)
@@ -352,6 +398,9 @@ namespace Battleship_Grid_Game
             return true;
         }
 
+        /*
+         * Random placement of the computer's ships requies validation of the position of the ship since there are multiple possible positions for the ship which could be invalid
+         */
         private bool IsValidVerticalComputerShip(int x, int y, int length)
         {
             if (y + length > 8)
@@ -370,6 +419,10 @@ namespace Battleship_Grid_Game
             return true;
         }
 
+        /**
+         * This function places the computer's ships randomly and calls the PlaceComputerShipRandomly method to place the ships in a vertical or horizontal manner in 
+         * the chosen coordinates
+         */
         private void PlaceComputerShips()
         {
             Console.WriteLine("PlaceComputerShips method called.");
@@ -388,6 +441,7 @@ namespace Battleship_Grid_Game
             PlaceComputerShipRandomly(random, shipLength5);
         }
 
+        // Place the computer's ships randomly
         private void PlaceComputerShipRandomly(Random random, int shipLength)
         {
             while (true)
@@ -395,7 +449,7 @@ namespace Battleship_Grid_Game
                 int x = random.Next(8);
                 int y = random.Next(8);
 
-                bool isHorizontal = random.Next(2) == 0; // Randomly choose horizontal or vertical placement
+                bool isHorizontal = random.Next(2) == 0; // Randomly choose horizontal or vertical placement this is done for hard mode of the game
 
                 if (IsValidComputerShipPlacement(x, y, isHorizontal, shipLength))
                 {
@@ -405,6 +459,11 @@ namespace Battleship_Grid_Game
                 }
             }
         }
+
+        /* Place the computer's ships has to be used in addition to the PlaceComputerShipRandomly method could be combined but for the sake of clarity I kept them separate
+         * Improvement could be made where computer ships are placed in a more strategic way, but for the sake of simplicity I kept it random in that case splitting it would be more useful
+         * This function handles if the ship is placed horizontally or vertically and then places the ship on the grid
+         */
 
         private void PlaceComputerShip(int x, int y, bool isHorizontal, int length)
         {
@@ -426,6 +485,7 @@ namespace Battleship_Grid_Game
             }
         }
 
+        //get the X coordinate of the button
         private int GetXCoordinate(Button button)
         {
             for (int x = 0; x < 8; x++)
@@ -443,7 +503,7 @@ namespace Battleship_Grid_Game
             return -1;
         }
 
-
+        // Get the Y coordinate of the button
         private int GetYCoordinate(Button button)
         {
             for (int x = 0; x < 8; x++)
@@ -461,13 +521,16 @@ namespace Battleship_Grid_Game
             return -1;
         }
 
-        //players move
-
+        /*
+         * This method is used to handle the player's move, it is the main logic for the player's gameplay
+         * It even has a partial win message for the player to let them know they've sunk half the fleet
+         */
         private void GridButton_Click(object sender, EventArgs e)
         {
             TimerLabel.Visible = false;
-            Console.WriteLine("GridButton_Click method called.");
+            Console.WriteLine("GridButton_Click method called."); //debugging
 
+            // Check if the game is over
             if (GameFinished)
             {
                 MessageBox.Show("The game has already finished");
@@ -481,7 +544,7 @@ namespace Battleship_Grid_Game
             int x = GetXCoordinate(clickedButton);
             int y = GetYCoordinate(clickedButton);
 
-            Console.WriteLine($"Clicked on computerBoard[{x}, {y}]");
+            Console.WriteLine($"Clicked on computerBoard[{x}, {y}]"); //debugging
 
             if (x >= 0 && x < 8 && y >= 0 && y < 8)
             {
@@ -501,6 +564,13 @@ namespace Battleship_Grid_Game
 
                         return;
                     }
+                    if (CountSunkShips(computerBoard) == 6)
+                    {
+                        MessageBox.Show("You have sunk half the enemy's fleet!!");
+                        InstructionsLabel.Text = "You have sunk half the enemy's fleet!!";
+                        GameFinished = false;
+                        
+                    }
                     else
                     {
                         isPlayerTurn = false;
@@ -518,6 +588,7 @@ namespace Battleship_Grid_Game
             }
         }
 
+        //disable the grid buttons when the game is over
         private void DisableGridButtons()
         {
             for (int x = 0; x < 4; x++)
@@ -538,22 +609,228 @@ namespace Battleship_Grid_Game
 
         }
 
-            // computer move
-            private async void ComputerMove(object sender, EventArgs e)
+        /*
+         * This method is used to handle the computer's move, it is the main logic for the computer's gameplay, the logic is not too complex and can be improved 
+         * ways to improve mentioned in the comments of the method of MoveOptions 
+         * It takes into account the sunk ship move options and then chooses a random position if no move options are available which is a decent approach
+         * It also has partial win message for the player to let them know they've sunk half the fleet
+         */
+        private async void ComputerMove(object sender, EventArgs e)
         {
-            StopTimer();
+            StopTimer(); // Disable the timer while the computer is making a move
+
             InstructionsLabel.Text = "Waiting for Enemy's move";
+            await Task.Delay(1000); // 1 second
 
-            await Task.Delay(0); // 2 seconds
-
-            if (isPlayerTurn)
+            if (isPlayerTurn || GameFinished)
             {
+                StartTimer(); // Re-enable the timer
                 return;
             }
 
-            Random random = new Random();
+            Random random = new Random(); // Random number generator
 
-            // To Keep generating new random coordinates until a unique one is found
+            int x, y;
+
+            List<(int, int)> moveOptions; // Store the move options
+
+            // If a ship is sunk, use the stored move options
+            if (isShipSunk == true)
+            {
+                moveOptions = sunkShipMoveOptions;
+                isShipSunk = false; // Reset the flag after using the move options
+            }
+            else
+            {
+                moveOptions = MoveOptions(0, 0, computerBoard);
+            }
+
+            // If move options are available, choose one of them
+            if (moveOptions.Count > 0)
+            {
+                int randomIndex = random.Next(moveOptions.Count);
+                (x, y) = moveOptions[randomIndex];
+
+
+                computerMoves.Add((x, y)); // Remember the chosen position
+
+                Console.WriteLine($"Computer chose coordinates: ({x}, {y})");
+
+                if (playerBoard[x, y] == 1)
+                {
+                    playerBoard[x, y] = 0;
+                    playerGrid[x, y].BackColor = Color.Red;
+                    MessageBox.Show("BOOM! The enemy sunk one of your battleships");
+                    UpdateShipCounter();
+                    isPlayerTurn = true;
+
+                    SunkLog(x, y); // Log ship sinking 
+
+                    // partial win condition
+                    if (CountSunkShips(playerBoard) == 6)
+                    {
+                        MessageBox.Show("The enemy has sunk half your fleet!!");
+                        InstructionsLabel.Text = "The enemy has sunk half your fleet!!";
+                        GameFinished = false;
+                    }
+                    else if (CountSunkShips(playerBoard) == 11)
+                    {
+                        MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
+                        InstructionsLabel.Text = "The enemy won";
+                        GameFinished = true;
+                        DisableGridButtons();
+                        currentRound++;
+                        UpdateRoundCounter();
+                    }
+
+                    SunkLog(x, y); // Log ship sinking 
+                }
+                else
+                {
+                    playerGrid[x, y].BackColor = Color.Yellow;
+                    MessageBox.Show("Enemy MISSED! Your turn");
+                    isPlayerTurn = true;
+                }
+
+                currentRound++;
+                UpdateRoundCounter();
+                CountSunkShips(playerBoard);
+            }
+            else // If no move options available choose a random position
+            {
+                (x, y) = GetRandomPosition(random);
+                computerMoves.Add((x, y)); // Remember the chosen position (Done so that computer remembers the position it has already chosen)
+
+                Console.WriteLine($"Computer chose coordinates: ({x}, {y})");
+
+                // Update last hit position only if it's a hit
+                if (playerBoard[x, y] == 1)
+                {
+                    playerBoard[x, y] = 0;
+                    playerGrid[x, y].BackColor = Color.Red;
+                    MessageBox.Show("BOOM! The enemy sunk one of your battleships");
+                    UpdateShipCounter();
+                    isPlayerTurn = true;
+
+                    lastHitPosition = null; // Reset last hit position after sinking a ship
+                    hitDirection = null;    // Reset hit direction
+                    SunkLog(x, y); // Log ship sinking 
+
+                    if (CountSunkShips(playerBoard) == 6)
+                    {
+                        MessageBox.Show("The enemy has sunk half your fleet!!");
+                        InstructionsLabel.Text = "The enemy has sunk half your fleet!!";
+                        GameFinished = false;
+                        return;
+                    }
+                    if (CountSunkShips(playerBoard) == 11)
+                    {
+                        MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
+                        InstructionsLabel.Text = "The enemy won";
+                        GameFinished = true;
+                        DisableGridButtons();
+                        currentRound++;
+                        UpdateRoundCounter();
+                        return;
+                    }
+
+                    SunkLog(x, y); // Log ship sinking 
+                }
+                else
+                {
+                    playerGrid[x, y].BackColor = Color.Yellow;
+                    MessageBox.Show("Enemy MISSED! Your turn");
+                    isPlayerTurn = true;
+                }
+
+                currentRound++;
+                UpdateRoundCounter();
+                CountSunkShips(playerBoard);
+            }
+
+            ResetTimer(); // Reset the timer after the computer's move
+            StartTimer(); // Re-enable the timer
+            InstructionsLabel.Text = "Attack the enemy";
+        }
+
+        /*
+         * This method is used to calculate the possible move options for the computer , it checks if the ship is sunk and then calculates the move options
+         * If a ship was sunk the computer fetches the coordinates of the sunk ship and then calculated the move options in 4 directions since there is no diagonal placement 
+         * This grealtly improves the computer's gameplay and makes it more challenging for the player as now it is not just random moves but the computer is aware of the 
+         * surroiunding of the sunk ship and can make a more strategic move. This can defineltey be improved by adding more sophisticated logic to the computer's gameplay
+         * 
+         * One such example could be that the computer could calculate different paths from the sunk ship, it calculates more than one move option in each direction 
+         * and then it could choose a path from the 4 available paths, if the option it chose is not a hit it could then choose another path and so on 
+         * That would gurantee the computer will sink the ship and is almost human like in its gameplay
+         * Could not implement this due to a lack of time but it is a good idea to improve the computer's gameplay
+         */
+        private List<(int, int)> MoveOptions(int sunkX, int sunkY, int[,] board)
+        {
+            Console.WriteLine($"Checking board value at ({sunkX}, {sunkY}): {board[sunkX, sunkY]}"); //debugging
+
+            if (board[sunkX, sunkY] == 0)
+            {
+                Console.WriteLine("Ship sunk! Calculating move options..."); //debugging
+
+                List<(int, int)> options = new List<(int, int)>();
+
+                // Use sunk ship coordinates
+                int x = sunkX;
+                int y = sunkY;
+
+                // Check left of the sunk ship
+                if (x - 1 >= 0 && !computerMoves.Contains((x - 1, y)))
+                {
+                    options.Add((x - 1, y));
+                    Console.WriteLine($"Left option: ({x - 1}, {y}) added"); //debugging
+                }
+
+                // Check right of the sunk ship
+                if (x + 1 < 8 && !computerMoves.Contains((x + 1, y)))
+                {
+                    options.Add((x + 1, y));
+                    Console.WriteLine($"Right option: ({x + 1}, {y}) added"); //debugging
+                }
+
+                // Check up the sunk ship 
+                if (y - 1 >= 0 && !computerMoves.Contains((x, y - 1)))
+                {
+                    options.Add((x, y - 1));
+                    Console.WriteLine($"Up option: ({x}, {y - 1}) added"); //debugging
+                }
+
+                // Check down the sunk ship
+                if (y + 1 < 8 && !computerMoves.Contains((x, y + 1)))
+                {
+                    options.Add((x, y + 1));
+                    Console.WriteLine($"Down option: ({x}, {y + 1}) added"); //debugging
+                }
+
+                if (options.Count == 0)
+                {
+                    Console.WriteLine("No valid move options found"); //debugging
+                }
+                else
+                {
+                    Console.WriteLine("Move options found:"); //debugging
+                    foreach (var option in options)
+                    {
+                        // debugging Console.WriteLine($"Option: ({option.Item1}, {option.Item2})"); 
+                    }
+                }
+
+                return options;
+            }
+            else
+            {
+                Console.WriteLine("No ship sunk. Choosing a random position..."); //debugging
+                return new List<(int, int)> { GetRandomPosition(new Random()) };
+            }
+        }
+
+        // Get a random position that hasn't been chosen before to avoid repeating moves
+        private (int, int) GetRandomPosition(Random random)
+        {
             int x, y;
             do
             {
@@ -561,109 +838,56 @@ namespace Battleship_Grid_Game
                 y = random.Next(8);
             } while (computerMoves.Contains((x, y)));
 
-            computerMoves.Add((x, y)); // Remember the chosen position
+            return (x, y);
+        }
 
-            Console.WriteLine($"Computer chose coordinates: ({x}, {y})"); // Print coordinates to console (For Testing and Verfication)
+        // Log the sunk ship and call the MoveOptions method to get the move options
+        private void SunkLog(int x, int y)
+        {
+            Console.WriteLine($"Computer sunk a ship at coordinates: ({x}, {y})");
 
-            if (playerBoard[x, y] == 1)
+            sunkShipMoveOptions = MoveOptions(x, y, computerBoard);
+
+            if (sunkShipMoveOptions.Count > 0)
             {
-                playerBoard[x, y] = -1;
-                playerGrid[x, y].BackColor = Color.Red;
-                MessageBox.Show("BOOM! The enemy sunk one of your battleships");
-                UpdateShipCounter();
-                isPlayerTurn = true;
-
-                if (CountSunkShips(playerBoard) ==6)
-                {
-                    MessageBox.Show("The enemy has sunk half your fleet!!");
-                    InstructionsLabel.Text = "The enemt has sunk half your fleet!!";
-                    GameFinished = false;
-                    return;
-                }
-
-                if (CountSunkShips(playerBoard) == 11)
-                {
-                    MessageBox.Show("You are awful! The enemy sank all the of your battleships. You lose!");
-                    InstructionsLabel.Text = "The enemy won";
-                    GameFinished = true;
-                    DisableGridButtons();
-                
-
-                    currentRound++;
-                    UpdateRoundCounter();
-                    return;
-                }
+                isShipSunk = true;
             }
             else
             {
-                playerGrid[x, y].BackColor = Color.Yellow;
-                MessageBox.Show("Enemy MISSED! Your turn");
-                isPlayerTurn = true;
+                isShipSunk = false;
             }
-
-            currentRound++;
-            UpdateRoundCounter();
-            CountSunkShips(playerBoard);
-
-            ResetTimer();
-            StartTimer();
-
-            if (!TimerLabel.Visible)
-            {
-                TimerLabel.Visible = true;
-            }
-
-            InstructionsLabel.Text = "Attack the enemy";
         }
 
+        // Count the number of sunk ships
         private int CountSunkShips(int[,] board)
         {
-
             int count = 0;
 
             for (int x = 0; x < board.GetLength(0); x++)
             {
                 for (int y = 0; y < board.GetLength(1); y++)
                 {
-                    if (board[x, y] == -1 && board == playerBoard && playerGrid[x, y].BackColor == Color.Red)
+                    if (board == playerBoard && playerGrid[x, y].BackColor == Color.Red)
                     {
                         count++;
                     }
-                    else if (board[x, y] == -1 && board == computerBoard && computerGrid[x, y].BackColor == Color.Red)
+                    else if (board == computerBoard && computerGrid[x, y].BackColor == Color.Red)
                     {
                         count++;
                     }
-
-
                 }
             }
 
             return count;
         }
 
+       
         /**
-        private int CountSunkShips(int[,] board)
-        {
-            int count = 0;
-
-            for (int x = 0; x < board.GetLength(0); x++)
-            {
-                for (int y = 0; y < board.GetLength(1); y++)
-                {
-                    if (board[x, y] == 1 && playerGrid[x, y].BackColor == Color.Red)
-                    {
-                        // Check if the entire ship is sunk
-                        if (IsShipSunk(x, y, board))
-                        {
-                            count++;
-                        }
-                    }
-                }
-            }
-
-            return count;
-        }
-
+         * Possible alternative to the CountSunkShips method, this is more extesnive and checks if the entire ship is sunk for the two different types of ships
+         * didn't work as intended, so I commented it out, but if there was more time could be a good alternative to the CountSunkShips method for the hard mode of the game
+         * The only problem to this approach is that, it would work better if from the beginning the logic was that ships are longer than one tile and 
+         * this would be more sophistated if there were different types of ships with different lengths it could even tell which ship was sunk
+        
         private bool IsShipSunk(int x, int y, int[,] board)
         {
             int shipLength = GetShipLength(x, y, board);
@@ -761,7 +985,7 @@ namespace Battleship_Grid_Game
             rulesForm.Show();
         }
 
-
+        //timer
         private void GridButtonTimer_Tick_1(object sender, EventArgs e)
         {
             if (timeLeft > 0)
@@ -785,12 +1009,14 @@ namespace Battleship_Grid_Game
 
         }
 
+        // rules button
         private void rulesBtn_Click_1(object sender, EventArgs e)
         {
             rules_page rulesForm = new rules_page();
             rulesForm.Show();
         }
 
+        // restart the game
         private void NewGame_Click(object sender, EventArgs e)
         {
             game3 start = new game3();
