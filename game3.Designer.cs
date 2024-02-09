@@ -130,6 +130,7 @@
             this.EndGame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.EndGame.TabIndex = 15;
             this.EndGame.TabStop = false;
+            this.EndGame.Click += new System.EventHandler(this.EndGame_Click_1);
             // 
             // rulesBtn
             // 

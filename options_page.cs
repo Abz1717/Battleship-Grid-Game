@@ -16,5 +16,13 @@ namespace Battleship_Grid_Game
         {
             InitializeComponent();
         }
+
+        private void options_page_Load(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                                      (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
+
+        }
     }
 }

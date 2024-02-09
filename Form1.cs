@@ -10,20 +10,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Battleship_Grid_Game
 {
     public partial class Form1 : Form
     {
+
+        private System.Media.SoundPlayer backgroundPlayer;
 
         public Form1()
         {
            
             InitializeComponent();
             
-
-
             PlaySound("the_mole_hans_zimmer.wav", isBackgroundMusic: true);
-
 
 
         }
@@ -35,14 +35,13 @@ namespace Battleship_Grid_Game
             string executablePath = AppDomain.CurrentDomain.BaseDirectory;
             string soundFilePath = Path.Combine(executablePath, "Resources", soundFileName);
 
-
-
             try
             {
 
                 if (isBackgroundMusic)
                 {
-                    
+                  
+                    // Unable to work with a relative path 
                     wplayer.URL = soundFilePath;
                     wplayer.controls.play();
                     Console.WriteLine("Sound File Path: " + soundFilePath);
@@ -61,22 +60,22 @@ namespace Battleship_Grid_Game
                 }
 
             }
-            catch (Exception ex)
+            catch (FileNotFoundException ex)
             {
-                Console.WriteLine("Error playing sound " + ex.Message + ex.ToString());
+                Console.WriteLine("Error: File not found - " + ex.Message);
+            }
+            catch ( Exception ex)
+            {
+                Console.WriteLine("Error: Playing sound - " + ex.Message);
+
             }
         }
-
-        
-
-
 
 
         private void btn_start_MouseHover(object sender, EventArgs e)
         {
             btn_start.Image = Properties.Resources.startbtn_hover;
         }
-
         private void btn_options_MouseHover(object sender, EventArgs e)
         {
             btn_options.Image = Properties.Resources.optionsbtn_hover;
@@ -145,8 +144,13 @@ namespace Battleship_Grid_Game
         {
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
-                                      (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2); 
+                                      (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
 
+
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
 
         }
     }
